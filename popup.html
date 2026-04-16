@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      width: 320px;
+      background: linear-gradient(135deg, #020617, #0f172a, #0c1929);
+      color: #e2e8f0;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.1));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      color: #f1f5f9;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .header p {
+      font-size: 11px;
+      color: #64748b;
+      position: relative;
+    }
+
+    .section {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .toggle-label {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .toggle-label span {
+      font-weight: 500;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .toggle-label small {
+      font-size: 11px;
+      color: #475569;
+    }
+
+    /* Toggle switch */
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-track {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: #334155;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 11px;
+      transition: all 300ms ease;
+    }
+
+    .toggle-track::before {
+      content: '';
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background: #64748b;
+      border-radius: 50%;
+      transition: all 300ms ease;
+    }
+
+    .toggle input:checked + .toggle-track {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+    }
+
+    .toggle input:checked + .toggle-track::before {
+      transform: translateX(18px);
+      background: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .shortcuts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shortcut {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .shortcut kbd {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-family: 'Inter', monospace;
+      color: #94a3b8;
+    }
+
+    .footer {
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 10px;
+      color: #475569;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .status-dot.active {
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+    }
+
+    .status-dot.inactive {
+      background: #475569;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #94a3b8;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>CadetNet Enhanced</h1>
+    <p>Space glass UI &amp; productivity tools</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Appearance</div>
+
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <span>Compact Mode</span>
+        <small>Tighter spacing for more content</small>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="compactMode">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tools</div>
+
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <span>Quick Navigation</span>
+        <small>Ctrl+K to jump to any page</small>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="quickNav">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <span>Status Bar</span>
+        <small>Info bar at the bottom of the page</small>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="statusBar">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <span>Enhanced Notifications</span>
+        <small>Pulsing badges for unread items</small>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="enhancedNotifications">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Keyboard Shortcuts</div>
+    <div class="shortcuts">
+      <div class="shortcut">
+        <span>Quick Navigation</span>
+        <kbd>Ctrl + K</kbd>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Status</div>
+    <div class="status-row" id="statusIndicator">
+      <span class="status-dot inactive"></span>
+      Checking...
+    </div>
+  </div>
+
+  <div class="footer">
+    CadetNet Enhanced v1.0.0 &mdash; CadetOne Project
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

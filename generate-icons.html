@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Generate Icons</title></head>
+<body>
+<p>Right-click each canvas and "Save image as" to create the icon PNGs, or use the download links below.</p>
+<canvas id="c16" width="16" height="16"></canvas>
+<canvas id="c48" width="48" height="48"></canvas>
+<canvas id="c128" width="128" height="128"></canvas>
+<br>
+<a id="d16" download="icon-16.png">Download 16px</a> |
+<a id="d48" download="icon-48.png">Download 48px</a> |
+<a id="d128" download="icon-128.png">Download 128px</a>
+<script>
+function drawIcon(canvas, size) {
+  const ctx = canvas.getContext('2d');
+  // Background circle
+  const gradient = ctx.createLinearGradient(0, 0, size, size);
+  gradient.addColorStop(0, '#6366f1');
+  gradient.addColorStop(1, '#8b5cf6');
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+  ctx.fillStyle = gradient;
+  ctx.fill();
+  // Letter "C"
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${size * 0.55}px sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('C', size/2, size/2 + size * 0.02);
+}
+[16, 48, 128].forEach(size => {
+  const canvas = document.getElementById('c' + size);
+  drawIcon(canvas, size);
+  document.getElementById('d' + size).href = canvas.toDataURL('image/png');
+});
+</script>
+</body>
+</html>
