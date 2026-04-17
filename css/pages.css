@@ -1,0 +1,932 @@
+/* CadetNet Enhanced - Page-Specific Styles */
+
+/* ============================================================
+   LANDING PAGES
+   ============================================================ */
+
+.landingpage {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  color: var(--ce-text) !important;
+}
+
+.landingmenu .level-1.hasChildren > a {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border-subtle) !important;
+  border-radius: var(--ce-radius) !important;
+  color: var(--ce-text) !important;
+  transition: all var(--ce-transition) !important;
+}
+
+.landingmenu .level-1.hasChildren > a:hover {
+  border-color: var(--ce-accent-border) !important;
+  background: var(--ce-glass-hover) !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--ce-glass-bg) !important;
+  backdrop-filter: var(--ce-blur) !important;
+  border-top: 1px solid var(--ce-glass-border) !important;
+}
+
+.footer, .footer a {
+  color: var(--ce-text-secondary) !important;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--ce-base-900); }
+::-webkit-scrollbar-thumb { background: var(--ce-base-600); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ce-accent); }
+
+::selection { background: var(--ce-accent-dim); color: var(--ce-accent-hover); }
+
+/* ============================================================
+   ACTIVITY PAGES
+   ============================================================ */
+
+/* Activity root nav header / back arrow */
+.nav-header {
+  background: transparent !important;
+  padding: 8px 0 !important;
+}
+
+.backArrow {
+  color: var(--ce-accent) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+/* Activity title bar */
+.activity-title {
+  padding: 16px 20px !important;
+}
+
+.activity-title-text {
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+}
+
+.activity-date,
+.activity-date-mobile {
+  color: var(--ce-text-muted) !important;
+  font-size: 12px !important;
+}
+
+.activity-status .header-status {
+  color: var(--ce-text-secondary) !important;
+}
+
+/* Activity tab buttons (row-tabs) */
+.row-tabs .btn-top-menu,
+.row.row-tabs .btn-top-menu {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 8px 14px !important;
+  border-radius: var(--ce-radius) !important;
+  margin: 2px !important;
+  transition: all var(--ce-transition) !important;
+}
+
+.row-tabs .btn-top-menu:hover {
+  background: var(--ce-glass-hover) !important;
+  border-color: var(--ce-accent-border) !important;
+  color: var(--ce-accent) !important;
+}
+
+.row-tabs .btn-top-menu[disabled],
+.row-tabs .btn-top-menu:disabled {
+  background: var(--ce-accent-dim) !important;
+  border-color: var(--ce-accent-border) !important;
+  color: var(--ce-accent) !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+.row-tabs .btn-back {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text-muted) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+/* Activity overview panels */
+.overview-summary-panel {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.overview-summary {
+  color: var(--ce-text) !important;
+}
+
+.overview-summary h5,
+.overview-summary-panel h5 {
+  color: var(--ce-text-bright) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 8px !important;
+}
+
+.overview-summary ul li {
+  color: var(--ce-text-secondary) !important;
+}
+
+.has-nominated-panel {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.has-nominated-panel h5 {
+  color: var(--ce-text-bright) !important;
+  background: transparent !important;
+}
+
+.activity-overview-description {
+  color: var(--ce-text-secondary) !important;
+  line-height: 1.6 !important;
+}
+
+/* Service color badges — ensure readable text */
+.service-color-bg.recurring-symbol {
+  color: white !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: var(--ce-radius-full) !important;
+}
+
+/* Activity detail sub-pages */
+.activity-tab-top-spacer {
+  padding-top: 16px !important;
+}
+
+/* Action bar buttons */
+.action-bar .btn {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.action-bar.bottom {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  margin-top: 20px !important;
+}
+
+/* Completed chart sidebar */
+.completed-chart {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  padding: 20px !important;
+}
+
+.completed-chart h4 {
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+.completed-chart .legend {
+  margin-bottom: 12px !important;
+}
+
+.completed-chart .legend-text {
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+}
+
+table.activity-template {
+  background: transparent !important;
+  width: 100% !important;
+}
+
+table.activity-template thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  padding: 8px 12px !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+}
+
+table.activity-template tbody tr {
+  cursor: pointer !important;
+  transition: background var(--ce-transition) !important;
+}
+
+table.activity-template tbody tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+table.activity-template tbody tr td {
+  padding: 8px 12px !important;
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  font-size: 13px !important;
+}
+
+table.activity-template tbody tr td.selected {
+  color: var(--ce-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Risk level badges */
+.risk-level {
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  padding: 2px 8px !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+.risk-calc {
+  color: var(--ce-text) !important;
+}
+
+/* Hazard category count badge */
+.catCount {
+  color: white !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: var(--ce-radius-full) !important;
+}
+
+/* Activity risk assessment */
+.activity-risk-assessment {
+  color: var(--ce-text) !important;
+}
+
+/* Support sections tables */
+table.support-sections thead tr th,
+table.supp-hazards thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+}
+
+table.support-sections tbody tr td,
+table.supp-hazards tbody tr td {
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+/* Activity submit button */
+.btn-application-submit {
+  background: linear-gradient(135deg, var(--ce-success), #16a34a) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 12px 24px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  width: 100% !important;
+  margin-top: 16px !important;
+}
+
+.activity-submit-dates {
+  color: var(--ce-text-secondary) !important;
+  font-size: 12px !important;
+  margin-top: 12px !important;
+}
+
+.activity-submit-dates strong {
+  color: var(--ce-text-bright) !important;
+}
+
+/* Required notes */
+.required-note {
+  color: var(--ce-warning) !important;
+  font-size: 11px !important;
+}
+
+/* Validation messages */
+.validation-msgs {
+  color: var(--ce-danger) !important;
+  font-size: 12px !important;
+}
+
+/* Upper case bold headings in activity */
+.upper-case-bold,
+h6.first.upper-case-bold {
+  color: var(--ce-text-bright) !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.8px !important;
+}
+
+/* Red/cadet-red warnings */
+.red-note,
+.cadet-red {
+  color: var(--ce-danger) !important;
+}
+
+/* Datepicker button */
+.btn-datepicker-bgwhite {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text-muted) !important;
+}
+
+/* CSS checkboxes */
+.css-checkbox + .css-label {
+  color: var(--ce-text) !important;
+}
+
+/* Form control static text */
+.form-control-static {
+  color: var(--ce-text) !important;
+}
+
+/* Scroll text for long hazard names */
+.scroll-text a,
+.scroll-text .first-link {
+  color: var(--ce-text) !important;
+}
+
+/* Dropdown multiselect */
+.dropdown .dropdown-toggle {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text) !important;
+}
+
+.dropdown .dropdown-menu {
+  background: var(--ce-glass-bg) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+}
+
+.dropdown .dropdown-menu li a {
+  color: var(--ce-text) !important;
+}
+
+.dropdown .dropdown-menu li a:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+.dropdown .dropdown-scrollable {
+  background: var(--ce-glass-bg) !important;
+}
+
+.dropdown .badge {
+  background: var(--ce-accent-dim) !important;
+  color: var(--ce-accent) !important;
+}
+
+.dropdown .filter-parent input {
+  background: var(--ce-base-800) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text) !important;
+}
+
+/* ============================================================
+   PEOPLE SEARCH OVERLAY (injected by content.js)
+   ============================================================ */
+
+#ce-people-search-overlay {
+  animation: ce-overlay-in 200ms ease-out;
+}
+
+#ce-people-search-overlay input:focus {
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 0 30px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* ============================================================
+   ADMIN FAB (injected by content.js)
+   ============================================================ */
+
+#ce-admin-fab-menu {
+  animation: ce-dropdown-in 200ms ease-out;
+}
+
+/* ============================================================
+   MY ACTIVITIES PAGE
+   ============================================================ */
+
+.tab-solid-panel,
+.tab-solid-panel-list {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+.tab-solid-panel-header {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 14px 20px !important;
+  margin-bottom: 16px !important;
+}
+
+.tab-solid-panel-header h2 {
+  color: var(--ce-text-bright) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+}
+
+.entity-details {
+  color: var(--ce-text-muted) !important;
+  font-size: 13px !important;
+}
+
+table.children.common {
+  background: transparent !important;
+  border-collapse: separate !important;
+  border-spacing: 0 12px !important;
+}
+
+table.children.common > tbody {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+}
+
+table.children.common > tbody > tr > td {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+  padding: 12px 16px !important;
+  vertical-align: top !important;
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td.all {
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td.tablet {
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td h4 {
+  color: var(--ce-text-bright) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin: 0 0 4px !important;
+}
+
+.my-activity-date {
+  color: var(--ce-accent) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+.has-nominated-bottom {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-secondary) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  margin: 6px 0 !important;
+  text-align: left !important;
+}
+
+.has-nominated-bottom.AAC {
+  background: rgba(74, 124, 89, 0.15) !important;
+  border-color: rgba(74, 124, 89, 0.3) !important;
+  color: var(--ce-text-secondary) !important;
+}
+
+.activity-location {
+  color: var(--ce-text-secondary) !important;
+}
+
+/* ============================================================
+   MY ACCOUNT PAGE VIEW (full page, not dropdown)
+   ============================================================ */
+
+/* The myAccountFixed table when shown in the full /MyAccount page view */
+div[cadetnet-static-include] #myAccountFixed,
+#ui-view-index-html #myAccountFixed {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  margin: 0 0 20px !important;
+}
+
+div[cadetnet-static-include] #myAccountFixed td,
+#ui-view-index-html #myAccountFixed td {
+  padding: 12px 16px !important;
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  vertical-align: middle !important;
+  background: transparent !important;
+}
+
+div[cadetnet-static-include] #logout-row td a.logout,
+#ui-view-index-html #logout-row td a.logout {
+  background: var(--ce-danger) !important;
+  color: white !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  display: block !important;
+  text-align: center !important;
+  font-size: 14px !important;
+}
+
+div[cadetnet-static-include] .notifications-tasks-row td,
+#ui-view-index-html .notifications-tasks-row td {
+  padding: 16px !important;
+  text-align: center !important;
+}
+
+div[cadetnet-static-include] .notifications-tasks-row a,
+#ui-view-index-html .notifications-tasks-row a {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px !important;
+  border-radius: var(--ce-radius) !important;
+  transition: all 200ms ease !important;
+}
+
+div[cadetnet-static-include] .notifications-tasks-row a:hover,
+#ui-view-index-html .notifications-tasks-row a:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+/* My Account menu items (li.level-1 in the page view) */
+div[cadetnet-static-include] + li.level-1,
+div[cadetnet-static-include] ~ li.level-1 {
+  list-style: none !important;
+}
+
+/* Icon replacement styling */
+.ce-icon-replaced {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: var(--ce-accent);
+}
+
+.ce-icon-replaced svg {
+  width: 28px;
+  height: 28px;
+}
+
+.count-icon .ce-icon-replaced {
+  width: 44px !important;
+  height: 44px !important;
+  background: var(--ce-accent-dim) !important;
+  border: 1px solid var(--ce-accent-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+}
+
+.count-text {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--ce-text-secondary) !important;
+}
+
+/* CadetNet .icon-* classes - base styling for SVG-replaced icons */
+span[data-ce-icon] {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}
+
+span[data-ce-icon] svg {
+  vertical-align: middle;
+}
+
+/* Override old icon background-image sprites to hide them */
+.icon-tick, .icon-cross, .icon-success, .icon-error,
+.icon-warning, .icon-info, .icon-question, .icon-eye-open,
+.icon-play, .icon-not-mandatory, .icon-exclamation, .icon-alert,
+.icon-question-large, .icon-warning-yellow {
+  background-image: none !important;
+  background: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* ============================================================
+   CSS CHECKBOXES & TABLE ZEBRA STRIPING
+   ============================================================ */
+
+/* CSS checkboxes (CadetNet custom checkbox styling) */
+.css-checkbox {
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: var(--ce-accent) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  position: static !important;
+}
+
+.css-label {
+  cursor: pointer !important;
+  color: var(--ce-text) !important;
+  padding-left: 4px !important;
+}
+
+/* Generic table zebra striping */
+.table > tbody > tr:nth-child(odd) > td,
+.children > tbody > tr:nth-child(odd) > td,
+table.children > tbody:nth-child(odd) > tr > td {
+  background: rgba(30, 41, 59, 0.3) !important;
+}
+
+.table > tbody > tr:nth-child(even) > td,
+.children > tbody > tr:nth-child(even) > td,
+table.children > tbody:nth-child(even) > tr > td {
+  background: transparent !important;
+}
+
+/* Ensure table hover still works on top of zebra */
+.table > tbody > tr:hover > td,
+.children > tbody > tr:hover > td,
+table.children > tbody > tr:hover > td {
+  background: var(--ce-glass-hover) !important;
+}
+
+/* ============================================================
+   ACCOUNT DROPDOWN FIX
+   ============================================================ */
+
+.account-fixed-items {
+  min-width: 240px !important;
+  max-width: 280px !important;
+  overflow: hidden !important;
+}
+
+#myAccountFixed {
+  width: 100% !important;
+  margin: 0 !important;
+  table-layout: fixed !important;
+}
+
+#myAccountFixed td {
+  padding: 8px !important;
+  vertical-align: middle !important;
+}
+
+#logout-row td {
+  padding: 8px 12px !important;
+}
+
+#logout-row td a.logout {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 8px 16px !important;
+  border-radius: var(--ce-radius) !important;
+  font-weight: 600 !important;
+  background: var(--ce-danger) !important;
+  color: white !important;
+}
+
+.notifications-tasks-row td {
+  width: 50% !important;
+  text-align: center !important;
+  padding: 12px 8px !important;
+}
+
+.notifications-tasks-row td a {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.count-icon {
+  background: transparent !important;
+}
+
+.count-icon img {
+  width: 28px !important;
+  height: 28px !important;
+  filter: brightness(0.7) invert(0.7) !important;
+}
+
+.count-text {
+  color: var(--ce-text-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+/* ============================================================
+   GLOBAL SPACING & PADDING OVERRIDES
+   ============================================================ */
+
+/* Main content area padding */
+.wrap {
+  min-height: 100vh !important;
+}
+
+.wrap > .container {
+  padding: 20px 24px !important;
+  max-width: 100% !important;
+}
+
+/* Better spacing for form groups */
+.form-group {
+  margin-bottom: 16px !important;
+}
+
+/* Control labels */
+.control-label {
+  color: var(--ce-text-secondary) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  margin-bottom: 6px !important;
+}
+
+/* Radio buttons and checkboxes */
+.radio label,
+.checkbox label {
+  color: var(--ce-text) !important;
+  padding-left: 5px !important;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  accent-color: var(--ce-accent) !important;
+}
+
+/* Form control static text */
+p.form-control-static {
+  color: var(--ce-text) !important;
+  min-height: auto !important;
+  padding: 4px 0 !important;
+}
+
+/* Section headings h3, h4, h5 inside forms */
+#application-template-html h3,
+#activities-tabs-html h3 {
+  color: var(--ce-text-bright) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+#application-template-html h4,
+#activities-tabs-html h4 {
+  color: var(--ce-text-bright) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin-top: 20px !important;
+  margin-bottom: 12px !important;
+}
+
+h5 {
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+}
+
+/* Global override for light backgrounds leaking through */
+.tab-panel,
+.tab-inner-panel {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+/* Activity template (completed chart) table - force dark */
+table.activity-template {
+  background: transparent !important;
+}
+
+table.activity-template thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 10px !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+}
+
+table.activity-template tbody tr {
+  cursor: pointer !important;
+}
+
+table.activity-template tbody tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+table.activity-template tbody tr td {
+  padding: 7px 10px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  color: var(--ce-text) !important;
+  font-size: 13px !important;
+  background: transparent !important;
+}
+
+table.activity-template tbody tr td.selected {
+  color: var(--ce-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Activity submit dates */
+.activity-submit-dates {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 12px 16px !important;
+  margin-top: 12px !important;
+  color: var(--ce-text-secondary) !important;
+  font-size: 12px !important;
+}
+
+.activity-submit-dates strong {
+  color: var(--ce-text-bright) !important;
+}
+
+/* Completed chart sidebar */
+.completed-chart {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  padding: 20px !important;
+  color: var(--ce-text) !important;
+}
+
+.completed-chart h4 {
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+  border-bottom: none !important;
+}
+
+/* Override any remaining #f1f1f1 / #f8f8f8 / #fcfcfc backgrounds */
+[style*="background-color: #f1f1f1"],
+[style*="background-color: #f8f8f8"],
+[style*="background-color: #fcfcfc"] {
+  background-color: var(--ce-glass-surface) !important;
+}
+
+/* Global busy indicator */
+.globalBusyIndicator {
+  position: fixed !important;
+  top: 60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 99999 !important;
+  border-radius: var(--ce-radius) !important;
+  box-shadow: var(--ce-shadow-glow) !important;
+}
+
+/* Loading bar override */
+#loading-bar .bar {
+  background: linear-gradient(90deg, var(--ce-accent), #6366f1) !important;
+  height: 3px !important;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color: var(--ce-accent) !important;
+  border-left-color: var(--ce-accent) !important;
+}
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.globalBusyIndicator { display: none !important; }
+
+#loading-bar .bar {
+  background: linear-gradient(90deg, var(--ce-accent), var(--ce-info)) !important;
+  height: 2px !important;
+  box-shadow: 0 0 10px var(--ce-accent-dim) !important;
+}
+
+/* ============================================================
+   COMPACT MODE
+   ============================================================ */
+
+html.ce-compact .widget-area .widget { margin-bottom: 12px !important; }
+html.ce-compact .widget-content { padding: 10px 14px !important; }
+html.ce-compact .widget-area .widget .widget-head { padding: 10px 14px !important; }
+html.ce-compact .table thead tr th,
+html.ce-compact .table tbody tr td { padding: 6px 10px !important; }
+html.ce-compact .btn { padding: 5px 12px !important; font-size: 12px !important; }

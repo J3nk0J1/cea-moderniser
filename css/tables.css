@@ -1,0 +1,337 @@
+/* CadetNet Enhanced - Tables & Data Display */
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+.table,
+table {
+  color: var(--ce-text) !important;
+}
+
+.table thead tr th,
+.children > thead > tr > th,
+.children-large > thead > tr > th,
+#searchResults > thead th,
+#my-workflows > thead th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+  font-weight: 600 !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+.table tbody tr td,
+.children > tbody > tr > td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  border-top: none !important;
+  font-size: 13px !important;
+  color: var(--ce-text) !important;
+  background: transparent !important;
+}
+
+.table tbody tr:hover > td,
+.table tr.active > td,
+.table tr:hover > td,
+#searchResults tbody > tr:hover,
+#my-workflows tbody > tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+#searchResults > thead,
+#my-workflows > thead {
+  background: var(--ce-glass-surface) !important;
+}
+
+#searchResults tbody > tr,
+#my-workflows tbody > tr {
+  background: transparent !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+/* Zebra striping for search results and workflow tables */
+#searchResults tbody > tr:nth-child(odd),
+#my-workflows tbody > tr:nth-child(odd) {
+  background: var(--ce-glass-surface) !important;
+}
+
+#searchResults tbody > tr:nth-child(even),
+#my-workflows tbody > tr:nth-child(even) {
+  background: transparent !important;
+}
+
+#searchResults tbody > tr > td,
+#my-workflows tbody > tr > td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  border-top: none !important;
+  font-size: 13px !important;
+  color: var(--ce-text) !important;
+}
+
+.child-collection {
+  background: var(--ce-glass-surface) !important;
+  border-radius: var(--ce-radius) !important;
+  border: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+.child-collection a.btn.btn-show {
+  background: var(--ce-accent-dim) !important;
+  border: 1px solid var(--ce-accent-border) !important;
+  color: var(--ce-accent) !important;
+}
+
+.children > tbody > tr > td.child-details {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+#permissionGroupTable tr {
+  background: var(--ce-glass-surface) !important;
+}
+
+#permissionGroupTable td {
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  color: var(--ce-text) !important;
+}
+
+/* Widget tables — override Bootstrap default white backgrounds */
+.widget-content .table,
+.widget-content .table-striped,
+.widget-content .table-hover,
+#wrap-td .table,
+#wrap-td .tasks .table {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+.widget-content .table tbody > tr,
+#wrap-td .table tbody > tr {
+  background: transparent !important;
+}
+
+.widget-content .table tbody > tr:nth-child(odd),
+#wrap-td .table tbody > tr:nth-child(odd) {
+  background: var(--ce-glass-surface) !important;
+}
+
+.widget-content .table tbody > tr:hover,
+#wrap-td .table tbody > tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+.widget-content .table tbody > tr > td {
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+.widget-content .table-responsive {
+  background: transparent !important;
+}
+
+/* Generic table zebra striping */
+.table > tbody > tr:nth-child(odd) > td,
+.children > tbody > tr:nth-child(odd) > td,
+table.children > tbody:nth-child(odd) > tr > td {
+  background: rgba(30, 41, 59, 0.3) !important;
+}
+
+.table > tbody > tr:nth-child(even) > td,
+.children > tbody > tr:nth-child(even) > td,
+table.children > tbody:nth-child(even) > tr > td {
+  background: transparent !important;
+}
+
+/* Ensure table hover still works on top of zebra */
+.table > tbody > tr:hover > td,
+.children > tbody > tr:hover > td,
+table.children > tbody > tr:hover > td {
+  background: var(--ce-glass-hover) !important;
+}
+
+/* My Learning widget fixes */
+#my-learning,
+#my-accomplishments,
+#my-learning td,
+#my-accomplishments td {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+#my-learning b,
+#my-accomplishments strong {
+  color: var(--ce-text-bright) !important;
+}
+
+/* My Account Fixed table */
+#myAccountFixed {
+  background: var(--ce-glass-surface) !important;
+  border-radius: var(--ce-radius) !important;
+  margin-bottom: 8px !important;
+}
+
+#myAccountFixed td {
+  padding: 6px 8px !important;
+  color: var(--ce-text) !important;
+}
+
+#myAccountFixed {
+  width: 100% !important;
+  margin: 0 !important;
+  table-layout: fixed !important;
+}
+
+#myAccountFixed td {
+  padding: 8px !important;
+  vertical-align: middle !important;
+}
+
+/* The myAccountFixed table when shown in the full /MyAccount page view */
+div[cadetnet-static-include] #myAccountFixed,
+#ui-view-index-html #myAccountFixed {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  margin: 0 0 20px !important;
+}
+
+div[cadetnet-static-include] #myAccountFixed td,
+#ui-view-index-html #myAccountFixed td {
+  padding: 12px 16px !important;
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  vertical-align: middle !important;
+  background: transparent !important;
+}
+
+/* Activity template table */
+table.activity-template {
+  background: transparent !important;
+  width: 100% !important;
+}
+
+table.activity-template thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  padding: 8px 12px !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+}
+
+table.activity-template tbody tr {
+  cursor: pointer !important;
+  transition: background var(--ce-transition) !important;
+}
+
+table.activity-template tbody tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+table.activity-template tbody tr td {
+  padding: 8px 12px !important;
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  font-size: 13px !important;
+}
+
+table.activity-template tbody tr td.selected {
+  color: var(--ce-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Activity template (completed chart) table - force dark (duplicate/override) */
+table.activity-template {
+  background: transparent !important;
+}
+
+table.activity-template thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 10px !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+}
+
+table.activity-template tbody tr {
+  cursor: pointer !important;
+}
+
+table.activity-template tbody tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+table.activity-template tbody tr td {
+  padding: 7px 10px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  color: var(--ce-text) !important;
+  font-size: 13px !important;
+  background: transparent !important;
+}
+
+table.activity-template tbody tr td.selected {
+  color: var(--ce-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Support sections tables */
+table.support-sections thead tr th,
+table.supp-hazards thead tr th {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text-muted) !important;
+}
+
+table.support-sections tbody tr td,
+table.supp-hazards tbody tr td {
+  color: var(--ce-text) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+/* My Activities children table */
+table.children.common {
+  background: transparent !important;
+  border-collapse: separate !important;
+  border-spacing: 0 12px !important;
+}
+
+table.children.common > tbody {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+}
+
+table.children.common > tbody > tr > td {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+  padding: 12px 16px !important;
+  vertical-align: top !important;
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td.all {
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td.tablet {
+  display: table-cell !important;
+}
+
+table.children.common > tbody > tr > td h4 {
+  color: var(--ce-text-bright) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin: 0 0 4px !important;
+}
+
+/* Compact mode table overrides */
+html.ce-compact .table thead tr th,
+html.ce-compact .table tbody tr td { padding: 6px 10px !important; }

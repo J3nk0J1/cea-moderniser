@@ -10,8 +10,33 @@
         "https://apps.cadetnet.gov.au/*",
         "https://*.cadetnet.gov.au/*"
       ],
-      "css": ["content.css"],
-      "js": ["content.js"],
+      "css": [
+        "css/variables.css",
+        "css/base.css",
+        "css/navigation.css",
+        "css/forms.css",
+        "css/tables.css",
+        "css/components.css",
+        "css/modals.css",
+        "css/widgets.css",
+        "css/pages.css",
+        "css/utilities.css",
+        "css/reporting.css"
+      ],
+      "js": [
+        "js/settings.js",
+        "js/utils.js",
+        "js/dom-fixes.js",
+        "js/modals.js",
+        "js/quick-actions.js",
+        "js/sidebar.js",
+        "js/status-bar.js",
+        "js/transitions.js",
+        "js/icons.js",
+        "js/admin-panel.js",
+        "js/reporting.js",
+        "js/init.js"
+      ],
       "run_at": "document_end"
     }
   ],

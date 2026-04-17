@@ -1,0 +1,288 @@
+/* CadetNet Enhanced - Forms & Inputs */
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  color: var(--ce-text) !important;
+  background: var(--ce-glass-surface) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+  transition: all var(--ce-transition) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+.form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--ce-accent-border) !important;
+  box-shadow: 0 0 0 3px var(--ce-accent-dim), var(--ce-shadow-glow) !important;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+input[disabled],
+input[readonly] {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border-color: var(--ce-glass-border-subtle) !important;
+  color: var(--ce-text-muted) !important;
+  cursor: not-allowed !important;
+}
+
+/* Angular form validation */
+div[ng-form] input.form-control.has-visited.ng-invalid,
+div[ng-form] select.form-control.has-visited.ng-invalid,
+div[ng-form] textarea.form-control.has-visited.ng-invalid,
+form input.form-control.has-visited.ng-invalid,
+form select.form-control.has-visited.ng-invalid,
+form textarea.form-control.has-visited.ng-invalid {
+  border: 1px solid var(--ce-danger-border) !important;
+  box-shadow: 0 0 0 3px var(--ce-danger-dim) !important;
+  background: var(--ce-glass-surface) !important;
+}
+
+div[ng-form] input.form-control.has-visited.ng-valid.has-value,
+div[ng-form] select.form-control.has-visited.ng-valid.has-value,
+div[ng-form] textarea.form-control.has-visited.ng-valid.has-value,
+form input.form-control.has-visited.ng-valid.has-value,
+form select.form-control.has-visited.ng-valid.has-value,
+form textarea.form-control.has-visited.ng-valid.has-value {
+  border: 1px solid var(--ce-success-border) !important;
+  box-shadow: 0 0 0 3px var(--ce-success-dim) !important;
+  background: var(--ce-glass-surface) !important;
+}
+
+.has-error .field-error {
+  background: var(--ce-danger-dim) !important;
+  border: 1px solid var(--ce-danger-border) !important;
+  border-radius: var(--ce-radius) !important;
+  color: #fca5a5 !important;
+}
+
+.required-note, .note.required { color: #f87171 !important; }
+
+.control-label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--ce-text-secondary) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.select-wrap {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  background: var(--ce-glass-surface) !important;
+}
+
+.multiselect-container.dropdown-menu {
+  border: 1px solid var(--ce-glass-border) !important;
+  background: var(--ce-glass-bg) !important;
+  backdrop-filter: var(--ce-blur) !important;
+}
+
+.form-container {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: 0 0 var(--ce-radius-lg) var(--ce-radius-lg) !important;
+  background: var(--ce-glass-card) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+}
+
+.input-group-fast-application {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border-subtle) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+.declaration {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text) !important;
+}
+
+/* ============================================================
+   EDIT FORMS
+   ============================================================ */
+
+div#member-edit-template-html > form,
+div#unit-edit-template-html > form,
+div#my-account-edit-template-html > form,
+div#admin-unit-edit-template-html > form,
+#application-template-html > form,
+#bulk-import-template-html > form,
+#communications-template-html > form,
+#leave-template-html > form {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--ce-radius-lg) var(--ce-radius-lg) !important;
+  background: var(--ce-glass-card) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+}
+
+/* CSS checkboxes */
+.css-checkbox + .css-label {
+  color: var(--ce-text) !important;
+}
+
+/* Form control static text */
+.form-control-static {
+  color: var(--ce-text) !important;
+}
+
+/* Datepicker button */
+.btn-datepicker, .btn-datepicker-bgwhite {
+  background: var(--ce-accent-dim) !important;
+  border: 1px solid var(--ce-accent-border) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+.btn-datepicker-bgwhite {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text-muted) !important;
+}
+
+/* Dropdown multiselect */
+.dropdown .dropdown-toggle {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text) !important;
+}
+
+.dropdown .dropdown-menu {
+  background: var(--ce-glass-bg) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+}
+
+.dropdown .dropdown-menu li a {
+  color: var(--ce-text) !important;
+}
+
+.dropdown .dropdown-menu li a:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+.dropdown .dropdown-scrollable {
+  background: var(--ce-glass-bg) !important;
+}
+
+.dropdown .filter-parent input {
+  background: var(--ce-base-800) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  color: var(--ce-text) !important;
+}
+
+/* CSS checkboxes (CadetNet custom checkbox styling) */
+.css-checkbox {
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: var(--ce-accent) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  position: static !important;
+}
+
+.css-label {
+  cursor: pointer !important;
+  color: var(--ce-text) !important;
+  padding-left: 4px !important;
+}
+
+/* Better spacing for form groups */
+.form-group {
+  margin-bottom: 16px !important;
+}
+
+/* Control labels */
+.control-label {
+  color: var(--ce-text-secondary) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  margin-bottom: 6px !important;
+}
+
+/* Radio buttons and checkboxes */
+.radio label,
+.checkbox label {
+  color: var(--ce-text) !important;
+  padding-left: 5px !important;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  accent-color: var(--ce-accent) !important;
+}
+
+/* Form control static text */
+p.form-control-static {
+  color: var(--ce-text) !important;
+  min-height: auto !important;
+  padding: 4px 0 !important;
+}
+
+/* Section headings h3, h4, h5 inside forms */
+#application-template-html h3,
+#activities-tabs-html h3 {
+  color: var(--ce-text-bright) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+#application-template-html h4,
+#activities-tabs-html h4 {
+  color: var(--ce-text-bright) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin-top: 20px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Required notes */
+.required-note {
+  color: var(--ce-warning) !important;
+  font-size: 11px !important;
+}
+
+/* Validation messages */
+.validation-msgs {
+  color: var(--ce-danger) !important;
+  font-size: 12px !important;
+}
+
+/* Notification info form groups */
+.notificationInfo .form-group {
+  background: var(--ce-glass-surface) !important;
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+  border-radius: 4px !important;
+  color: var(--ce-text) !important;
+}
+
+/* Search controls form group multiselect */
+.searchControls .form-group .btn.multiselect.dropdown-toggle {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text) !important;
+}

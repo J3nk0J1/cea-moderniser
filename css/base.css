@@ -1,0 +1,93 @@
+/* CadetNet Enhanced - Global Base Styles */
+
+/* ============================================================
+   GLOBAL BASE
+   ============================================================ */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  background: linear-gradient(135deg, var(--ce-base-950) 0%, var(--ce-base-900) 50%, #0c1929 100%) !important;
+  background-attachment: fixed !important;
+  color: var(--ce-text) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  padding-bottom: 32px !important;
+  min-height: 100vh !important;
+}
+
+p { font-size: 1em !important; color: var(--ce-text-secondary) !important; }
+
+a {
+  color: var(--ce-accent) !important;
+  transition: all var(--ce-transition) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--ce-accent-hover) !important;
+  text-shadow: 0 0 8px var(--ce-accent-dim) !important;
+}
+
+a:focus, a:focus:hover {
+  outline: 2px solid var(--ce-accent) !important;
+  outline-offset: 2px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ce-text-bright) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+h1 { font-size: 1.875em !important; font-weight: 700 !important; }
+h2 { font-size: 1.5em !important; font-weight: 600 !important; }
+h3 { font-size: 1.25em !important; font-weight: 600 !important; }
+h4 { font-size: 1.125em !important; font-weight: 600 !important; }
+h5 { font-size: 1em !important; font-weight: 600 !important; }
+
+h6.upper-case-bold {
+  font-size: 0.8em !important;
+  letter-spacing: 0.5px !important;
+}
+
+h6.upper-case-bold.heading {
+  background: var(--ce-glass-surface) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 10px 14px !important;
+  color: var(--ce-text) !important;
+}
+
+pre {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius) !important;
+  color: var(--ce-text) !important;
+  padding: 12px !important;
+}
+
+/* Status color utilities */
+.green { color: var(--ce-success) !important; }
+.orange { color: var(--ce-warning) !important; }
+.red, .cadet-red, .cadetNetRed, .red-text { color: var(--ce-danger) !important; }
+
+.disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+}
+
+/* Service brand colors - keep distinct */
+.service-color { background-color: var(--ce-accent) !important; color: var(--ce-base-900) !important; }
+.service-color-hover:hover { background-color: var(--ce-accent-hover) !important; }
+.service-color-only { color: var(--ce-accent) !important; }
+.service-color-bg { background-color: var(--ce-accent) !important; }
+
+.AAC { background-color: rgba(74, 124, 89, 0.8) !important; }
+.AAFC { background-color: rgba(59, 89, 152, 0.8) !important; }
+.ANC { background-color: rgba(91, 90, 126, 0.8) !important; }

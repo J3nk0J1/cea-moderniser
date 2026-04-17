@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/activities/269498/overview -->
+<html class="no-js ng-scope" ng-app="cadetnetApp" id="ng-app"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <!--
+  // THIS COULD BE A POTENTIAL WORKAROUND FOR ie9 iNTERMITTANT CLIENT SIDE ROUTING... NOT FULLY TESTED SO NOT INCLUDED
+  <base href="/" />
+   -->
+    <script language="javascript" type="text/javascript">
+        var urlSearchRaw = window.location.search.trim();
+        var parts = [];
+        var founds = false;
+        var changed = false;
+        if (urlSearchRaw.substr(0, 1) == "?") {
+            parts = urlSearchRaw.substr(1).split("&");
+            for (var idx = parts.length - 1; idx >= 0; idx--) {
+                var keyval = parts[idx].split("=");
+                switch ("" + keyval[0]) {
+                    case "s":
+                        founds = true;
+                        break;
+                    case "authToken":
+                        changed = true;
+                        parts.splice(idx, 1);
+                        break;
+                    case "client-request-id":
+                        changed = true;
+                        parts.splice(idx, 1);
+                        break;
+                }
+            }
+        }
+        if (!founds) {
+            parts.push("s=" + (((new Date()).getTime() * 10000) + 621355968000000000 + ((new Date()).getTimezoneOffset() * -600000000)).toString());
+            changed = true;
+        }
+        if (changed) {
+            var newurl = window.location.origin + window.location.pathname + "?" + parts.join("&") + window.location.hash;
+            window.location.replace(newurl);
+        }
+    </script>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title ng-bind="pageTitle" class="ng-binding">ADF Cadets - Activity overview</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css({.tmp,app}) styles/cadetnet-main.css -->
+
+    <!-- Contrib style -->
+    <!-- build:css({.tmp,app}) css/styles.css -->
+    <script type="text/javascript" src="./ADF Cadets - Activity overview_files/ruxitagentjs_ICA7NVfqrux_10333260303165926.js" data-dtconfig="rid=RID_2095071270|rpid=924870455|domain=cadetnet.gov.au|reportUrl=/v5/rb_5fcf3fe8-a134-450b-91f9-df96c81f79d2|app=88623bfce7c83183|owasp=1|featureHash=ICA7NVfqrux|rdnt=0|uxrgce=1|cuc=o6ejm382|mel=100000|expw=1|dpvc=1|lastModification=1776290426433|postfix=o6ejm382|tp=500,50,0|srbbv=2|agentUri=/v5/ruxitagentjs_ICA7NVfqrux_10333260303165926.js"></script><link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/1029ff05.normalize.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/c4195abb.toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/5b85714c.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/505367f3.bootstrap2icon.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/f68c822f.bootstrap-glyphicons.css">
+
+    <!-- Application style -->
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/1bb05bdc.style.css">
+
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/0aaac79e.nv.d3.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/c552a822.animate.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/60431478.bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/fc1fc283.loading-bar.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/0af6925d.gd-ui-jsonexplorer.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/1552c8ec.jquery.Jcrop.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/d4a18e0c.fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Activity overview_files/2f625703.angular-dropdownMultiselect.css">
+
+    <!-- /build -->
+<link type="text/css" rel="stylesheet" href="./ADF Cadets - Activity overview_files/undefined.css"><link type="text/css" rel="stylesheet" href="./ADF Cadets - Activity overview_files/AAC.css"></head>
+
+<body ng-controller="RootController" class="" resize-event="" style="">
+    <img id="gbi" src="./ADF Cadets - Activity overview_files/loading2.gif" ng-show="globalBusyIndicator || pendingRequests.active()" class="globalBusyIndicator ng-hide">
+    <!-- {{User.Service}} -->
+    <!-- Internet Explorer http://docs.angularjs.org/guide/ie -->
+    <!--[if lt IE 5]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+            today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+            experience this site.
+        </p>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="libs/es5-shim.min.js"></script>
+        <script src="libs/json3.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script>
+            'nav footer header ng-include ng-view ui-view subnav tick checkmark checkmarkyesno cadetnet-Uag-Timer'.replace(/\w+/g, function(n) { document.createElement(n) });
+            'nav footer header ng:include ng:view ui:view subnav tick checkmark checkmarkyesno'.replace(/\w+/g, function(n) { document.createElement(n) });
+        </script>
+        <style>
+            ng\\:view { display: block; }
+            ng-include { display: block; }
+        </style>
+    <![endif]-->
+
+<div class="wrap">    
+    <div class="navbar navbar-default navbar-fixed-top noselect" role="navigation">
+        <ul class="container nav navbar-nav navbar-left">
+            <li class="dropdown nav-other">
+                <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/" class="ms365-menu-white">
+                    <img src="./ADF Cadets - Activity overview_files/ms365-menu-white.png">
+                </a>
+                <ul id="external-web-links" class="external-web-links">
+                    <ul class="static-links">
+                        <li class="menu-icon"><img src="./ADF Cadets - Activity overview_files/ms365-menu-black.png"></li>
+                        <li class="ms365-link">
+                            <a href="https://www.microsoft365.com/">Microsoft 365 <img src="./ADF Cadets - Activity overview_files/ms365-menu-right-arrow.png"></a>
+                        </li>
+                    </ul>
+                    <div id="dynamic-links" class="dynamic-links"><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="2" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/" class="leaf"><i class="nav-v5 service-color-hover"></i>v5</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://members.cadetnet.gov.au/" target="_blank" class="leaf"><i class="nav-intranet service-color-hover"></i>Intranet</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://www.cadetnet.gov.au/" target="_blank" class="leaf"><i class="nav-website service-color-hover"></i>Website</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://outlook.office365.com/mail/?login_hint%3d2426077%40cadetnet.gov.au" target="_blank" class="leaf" rel="noreferrer"><i class="nav-webmail service-color-hover"></i>Webmail</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/elearning/" target="_blank" class="leaf"><i class="nav-elearning service-color-hover"></i>eLearning</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/defence/" target="_blank" class="leaf"><i class="nav-chemalert service-color-hover"></i>ChemAlert</a></li></div>
+                    <div class="clearfix"></div>
+                    <ul class="static-links">
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/changelog">
+                                Changes in this release
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/tnc">
+                                Terms &amp; conditions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/privacy">
+                                Privacy statement
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/copyright">
+                                © Commonwealth of Australia
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="position:absolute;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- ngIf: User.ServiceImageGuid --><img class="logo ng-scope" ng-src="/v5/api/upload/display/27608a62-7646-4a51-a71f-c00286e68ef8" alt="Service logo" ng-if="User.ServiceImageGuid" style="z-index:-1;" src="./ADF Cadets - Activity overview_files/27608a62-7646-4a51-a71f-c00286e68ef8"><!-- end ngIf: User.ServiceImageGuid -->
+                <!-- ngIf: User.Service != undefined --><a class="navbar-brand ng-binding ng-scope" ng-if="User.Service != undefined" cadet-link="" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/">
+                    AAC:V5
+                </a><!-- end ngIf: User.Service != undefined -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="collapse-menu" class="collapse navbar-collapse navbar-ex1-collapse">
+                <nav id="header">
+                    <!-- PEOPLE ORGANISATION REPORTS ADMIN goes in the following UL-->
+                    <!--<ul class="nav navbar-nav navbar-search">
+                    <li>
+                        <div id="custom-search-input">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="Search People" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>-->
+                    <ul class="nav navbar-nav navbar-left commmonHeaderNavs" style="position:absolute; margin-left:150px;"><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="People" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/People" class="notleaf">People</a><ul class="level-2" style="display: none;"><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Search" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/member" class="leaf">Search</a></li><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Applications" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/application" class="leaf">Applications</a></li><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Cadet bulk image import" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/bulk-image-import" class="leaf">Cadet bulk image import</a></li><li class="level-2"><a cadet-link="true" tf="2" path="People/Workflow history" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/People/Workflow%20history">Workflow history</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="Organisation" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation" class="notleaf">Organisation</a><ul class="level-2 manyitems" style="display: none;"><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Activities">Activities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Assets">Assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Cashbook">Cashbook</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Facilities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Facilities">Facilities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Firearms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Firearms">Firearms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Hazards" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Hazards">Hazards</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/ICT assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/ICT%20assets">ICT assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Inspections" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Inspections">Inspections</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Learning">Learning</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Sentinel" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Sentinel">Sentinel</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Uniforms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Uniforms">Uniforms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Units" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Units">Units</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Workflow history" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Workflow%20history">Workflow history</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/V4 Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/V4%20Activities">V4 Activities</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="Reports" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Reports" class="notleaf">Reports</a><ul class="level-2" style="display: none;"><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="Reports/Search" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/reports" class="leaf">Search</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="System" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System" class="notleaf">System</a><ul class="level-2 manyitems"><li class="level-2"><a cadet-link="true" tf="2" path="System/Activities &amp; learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Activities%20&amp;%20learning">Activities &amp; learning</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Assets">Assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Cashbook">Cashbook</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Facilities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Facilities">Facilities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Firearms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Firearms">Firearms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Global" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Global">Global</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Health &amp; safety" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Health%20&amp;%20safety">Health &amp; safety</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Mail" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Mail">Mail</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Organisation - content" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Organisation%20-%20content">Organisation - content</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - age out" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20age%20out">People - age out</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - appointments" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20appointments">People - appointments</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20details">People - details</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - ranks" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20ranks">People - ranks</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - roles" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20roles">People - roles</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - volunteer payments" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20volunteer%20payments">People - volunteer payments</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Permission" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Permission">Permission</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Training" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Training">Training</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Uniforms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Uniforms">Uniforms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Units" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Units">Units</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Workflow" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Workflow">Workflow</a></li></ul></li></ul>
+                    <ul class="nav navbar-nav navbar-right">                        
+                        <li class="dropdown my-account">
+                            <a cadet-link="" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount" path="MyAccount" id="userGreeting" class="ng-binding">
+                                Hi James
+                                <i class="countBadge service-color ng-binding">
+                                    1
+                                </i>
+                            </a>
+                            <ul class="account-fixed-items" cadetnet-static-include="views/menu/my-account-fixed-items.html" style="display: none;"><table id="myAccountFixed" width="200px" class="ng-scope">
+    <tbody><tr id="logout-row">
+        <td colspan="2">
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/logout" class="btn service-color logout">Logout</a>
+        </td>
+    </tr>
+    <tr class="notifications-tasks-row">
+        <td>
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-notifications" cadet-link="true" path="MyAccount/Notifications">
+                <div class="service-color-hover count-icon">
+                    <img src="./ADF Cadets - Activity overview_files/icon-notifcations.png">
+                </div>
+                <div class="count-text">
+                    Notifications
+                        <i class="countBadge service-color ng-binding">1</i>
+                </div>
+            </a>
+        </td>
+        <td>
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-tasks" cadet-link="true" path="MyAccount/Tasks">
+                <div class="service-color-hover count-icon">
+                    <img src="./ADF Cadets - Activity overview_files/icon-tasks.png">
+                </div>
+                <div class="count-text">
+                    Tasks
+                        <i class="countBadge service-color ng-binding">17</i>
+                </div>
+            </a>
+        </td>
+    </tr>
+</tbody></table>
+<li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/view-details">My details</a></li><li class="level-1 noChildren ng-scope" update-details="" ng-hide="hide"><a cadet-link="true" tf="2" path="MyAccount/Update details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Update%20details" class="leaf">Update details</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Manage account" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Manage%20account">Manage account</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Manage career" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Manage%20career">Manage career</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/My%20cashbook">My cashbook</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/my-activities">My activities</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/learning">My learning</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Other info" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Other%20info">Other info</a></li></ul>
+                        </li>
+                        <!--Commenting the Cube menu as the new M365 menu is implemented-->
+                        <!--<li class="dropdown nav-other">-->
+                        <!-- style="margin-right: 20px;">-->
+                        <!--<a cadet-link id="other-link" href="#/">
+                            <img src="img/icon-nav-other.png" style="width: 25px; margin: 0px 8px;">
+                        </a>
+                        <ul id="otherWebLinks">
+                            <div id="firstbits"></div>
+                            <div class="clearfix"></div>
+                            <ul id="secondbits">
+                                <li>
+                                    <a href="#/changelog">
+                                        Changes in this release
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/tnc">
+                                        Terms & conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/privacy">
+                                        Privacy statement
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/copyright">
+                                        &copy; Commonwealth of Australia
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>-->
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </div>
+    <div class="container textBody">
+        <div class="row noselect" cadet-breadcrumb="">
+    <!-- Bread crumb START -->
+    <div id="breadcrumb" class="col-md-12" ng-show="navItem">
+        <!-- Nav Item -->
+        <span class="ng-binding">
+            ORGANISATION :
+        </span>
+        <!-- section  Item -->
+        <div class="btn-group">
+            <a class="dropdown-toggle  ng-binding" data-toggle="dropdown">
+                Activities
+            </a>
+            <ul class="dropdown-menu" role="menu" id="navChildren"><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Activities">Activities</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Assets">Assets</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Cashbook">Cashbook</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Facilities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Facilities">Facilities</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Firearms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Firearms">Firearms</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Hazards" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Hazards">Hazards</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/ICT assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/ICT%20assets">ICT assets</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Inspections" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Inspections">Inspections</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Learning">Learning</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Sentinel" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Sentinel">Sentinel</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Uniforms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Uniforms">Uniforms</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Units" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Units">Units</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/Workflow history" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Workflow%20history">Workflow history</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="Organisation/V4 Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/V4%20Activities">V4 Activities</a></li></ul>
+        </div>
+
+        <!-- Selected Item -->
+        
+    <div class="btn-group sectionItem" ng-show="sectionItem &amp;&amp; (navItem!=&#39;MyAccount&#39; || (navItem==&#39;MyAccount&#39; &amp;&amp; (sectionItem==&#39;My volunteer payments&#39; || sectionItem==&#39;My activities&#39;))) &amp;&amp; hasChildrenInSecondLevel">
+        
+        <!--<div class="btn-group sectionItem" ng-show="sectionItem && (navItem!='MyAccount') && hasChildrenInSecondLevel">
+    <div class="btn-group sectionItem" ng-show="sectionItem && hasChildrenInSecondLevel">
+        -->
+        <a class="dropdown-toggle ng-binding" data-toggle="dropdown">
+            Activities
+        </a>
+        <ul class="dropdown-menu menu1Column" role="menu" id="sectionChildren"><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="2" path="Organisation/Activities/Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/activities/list" class="leaf">Activities</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="2" path="Organisation/Activities/Templates" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/activities/templates" class="leaf">Templates</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="2" path="Organisation/Activities/Risk assessment" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/admin/activity/activity-ramp" class="leaf">Risk assessment</a></li></ul>
+    </div>
+    </div>
+    <!-- Bread crumb END -->
+    <br>
+</div>
+        <!-- uiView:  --><div ui-view="" id="ui-view-index-html" class="ng-scope"><!-- uiView:  --><div ui-view="" id="activities-root-html" class="ng-scope"><div class="row nav-header ng-scope">
+    <div class="col-md-12">
+        <!-- ngIf: navDS.isActivityAdmin === true --><a ng-click="navDS.navigateToActivities()" class="pull-left backArrow ng-scope" ng-if="navDS.isActivityAdmin === true">Back to activity search page</a><!-- end ngIf: navDS.isActivityAdmin === true -->
+        <!-- ngIf: navDS.isActivityAdmin === false -->
+    </div>
+</div>
+
+<div id="application-template-html" class="ng-scope">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="activity-title" style="word-break: break-all;">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <span activity-list-icon="" link-guid="nav.SmallIcon" classes="activity-title-small-icon inline-block" class="ng-isolate-scope"><!-- ngIf: validLink --><img ng-if="validLink" ng-src="/v5/api/activitydocument/bylink/3d5b2346-22b6-490e-9715-dfdd3c438b44" alt="Icon" class="activity-title-small-icon inline-block" src="./ADF Cadets - Activity overview_files/3d5b2346-22b6-490e-9715-dfdd3c438b44"><!-- end ngIf: validLink -->
+</span>
+                        <span class="activity-title-text ng-binding">&nbsp;112470: Woden RSL ANZAC and Peace Ceremony <span class="activity-date ng-binding">(09:30 - 13:00 24 Apr 2026)</span>
+                            <!-- ngIf: nav.MenuPermissions.CanViewDetails && nav.IsRecurringSource != null && nav.IsRecurringSource === true -->
+
+                            <!-- ngIf: nav.MenuPermissions.CanViewDetails && nav.IsRecurringInstance != null && nav.IsRecurringInstance === true -->
+                        </span>
+                    </div>
+                    <div class="col-sm-3 text-right activity-status">
+                        <div class="header-status activity-title-text-container">
+                            <span ng-show="!navDS.isActivityAdmin || !nav.WorkflowId" class="activity-title-text ng-binding ng-hide">Status: Pending</span>
+                            <span ng-show="navDS.isActivityAdmin &amp;&amp; nav.WorkflowId" class="activity-title-text">Status: <a href="https://apps.cadetnet.gov.au/v5/ui/index.html#/workflowhistory/view/78352a55-e901-4469-9511-d7d5968bcc5e" class="ng-binding">Pending</a></span>
+							<!-- ngIf: nav.MenuPermissions.CanViewDetails && nav.HasActiveSupportRequests -->
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 activity-date-mobile ng-binding">
+                        (09:30 - 13:00 24 Apr 2026)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-tabs level-1">
+        <div class="col-md-12">
+            <button class="btn btn-back hideTab" ng-class="{hideTab: !selectedTab.hasChildren}" ng-click="goToOverview()">&lt; Back</button>
+            <!-- ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true" disabled="disabled">
+                <span class="ng-binding">Overview</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Activity details</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope hasChildren" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Attendance</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope hasChildren" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Conduct</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Activity History</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Post Activity Review</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index --><!-- ngIf: section.userCanView == true --><button class="btn btn-top-menu ng-scope" ng-class="{hasChildren: section.hasChildren, hideTab: selectedTab.hasChildren &amp;&amp; !section.isSelected}" ng-if="section.userCanView == true" ng-click="navDS.navigateAndTransition(nav.Id, section.name)" ng-repeat="section in navDS.defaultSections track by $index" ng-disabled="section.isSelected == true">
+                <span class="ng-binding">Activity Changes</span>
+            </button><!-- end ngIf: section.userCanView == true --><!-- end ngRepeat: section in navDS.defaultSections track by $index -->
+        </div>
+    </div>
+
+    <!-- uiView:  --><div ui-view="" id="activities-tabs-html" ng-swipe-right="userSwipedRight()" class="ng-scope"><div id="application-template-html" class="activity-tab-top-spacer ng-scope">
+    <div class="col-md-12">
+        <div class="row first">
+            <div class="col-sm-8">
+                <h3>About the activity</h3>
+                <p ng-show="overview.Parent != null &amp;&amp; !overview.ActivityType.SubActivityOnly" class="ng-hide">
+                    This activity is linked to <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?#/activities//overview" target="_blank">
+                        <strong class="ng-binding">
+                            :
+                            <span ng-show="overview.ServiceId != overview.Parent.ServiceId" class="ng-binding">()</span>
+                        </strong>
+                    </a>.
+                </p>
+
+                <div class="row">
+                 
+                </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="activity-overview-description ng-binding" ng-bind="overview.Description">241ACU North Canberra will be conducting a Catafalque Party (no weapons) on behalf of the Woden RSL Sub-Branch and local schools on Friday 24 April 2026  within the confines of Eddison Park in the Woden Town Centre. The activity will
+comprise six cadets, one guard commander, two reserves and two supervising Adult Cadet Staff. The activity will be the culmination of ceremonial training conducted during unit parade nights leading up to ANZAC Day 2026. Cadets and staff will arrive at Eddison Park no later than 1000hrs on Friday 24 April 2026. The cadets will conduct two rehearsals at the ceremonial site prior to the start of the actual ANZAC Day ceremony at 1030hrs. The ceremony is expected to conclude by 1130hrs where the cadets will be released into the care of their parents/carers. All movements to and from the activity will be their own means and there will no rations provided by the AAC or the RSL. The temperature is
+expected to be a low 5 degrees centigrade up to 18 degrees and DPCU jumpers will be compulsory for all cadets and staff to wear.</div>
+                            <h6 class="first upper-case-bold">Nomination dates</h6>
+                            <p class="ng-binding"><strong>OPEN:</strong> 15 Apr 2026</p>
+                            <p class="ng-binding"><strong>CLOSE:</strong> 24 Apr 2026</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div activity-role-nominate-expander="" activity-id="overview.Id" class="ng-isolate-scope"><accordion><div class="panel-group" ng-transclude="">
+    <div class="panel panel-default ng-isolate-scope" is-open="page.roleNominateOpen">
+  <div ng-click="isOpen = !isOpen" class="panel-heading "><a class="accordion-toggle ng-binding" accordion-transclude="heading"><span class="ng-scope">
+            Nominate for a role in this activity
+            </span><i class="pull-right icon icon-play  "></i>
+        </a></div>
+  <div class="panel-collapse collapse" collapse="!isOpen" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+        <accordion-heading class="ng-scope"></accordion-heading>
+        <div class="col-sm-12 ng-scope">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Supervisors</h5>
+                    <p>
+                        <span class="ng-binding"><b>OPEN</b> - </span><br>
+                        <span class="ng-binding"><b>CLOSE</b> - </span>
+                    </p>
+                </div>
+                <!-- ngIf: page.data.Nominations.MaxCadetStaff > 0 -->
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="children">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Role</th>
+                                <th>Available</th>
+                                <th>Must meet prerequisites</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: r in page.data.Roles track by $index -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>  </div>
+</div>
+</div></accordion>
+</div>
+
+                            <div activity-overview-docs="" document-links="overview.OverviewDocuments" class="ng-isolate-scope"><!-- ngIf: config.showDocs == true --><accordion ng-if="config.showDocs == true" class="ng-scope"><div class="panel-group" ng-transclude="">
+    <div class="panel panel-default ng-isolate-scope" is-open="expanders.activityDocumentsOpen">
+  <div ng-click="isOpen = !isOpen" class="panel-heading "><a class="accordion-toggle ng-binding" accordion-transclude="heading"><span class="ng-scope">
+            Activity documents
+            </span><i class="pull-right icon icon-play  "></i>
+        </a></div>
+  <div class="panel-collapse collapse" collapse="!isOpen" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+        <accordion-heading class="ng-scope"></accordion-heading>        
+
+        <!-- ngIf: config.trainingLinks.length > 0 -->
+        
+        <!-- ngIf: config.generalLinks.length > 0 -->
+   
+        <!-- ngIf: config.instructionLinks.length > 0 -->
+        
+    </div>  </div>
+</div>
+</div></accordion><!-- end ngIf: config.showDocs == true -->
+
+
+</div>
+
+                            <!-- ngIf: page.HasAnnotations -->
+
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-4">
+
+                <div activity-image-carousel="" document-links="overview.OverviewImages" class="ng-isolate-scope"><!-- ngIf: config.showImages == true --><div style="max-height: 300px" ng-if="config.showImages == true" class="ng-scope">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel ng-isolate-scope" interval="30000">
+    <ol class="carousel-indicators ng-hide" ng-show="slides().length &gt; 1">
+        <!-- ngRepeat: slide in slides() --><li ng-repeat="slide in slides()" ng-class="{active: isActive(slide)}" ng-click="select(slide)" class="ng-scope active"></li><!-- end ngRepeat: slide in slides() -->
+    </ol>
+    <div class="carousel-inner" ng-transclude="">
+        <!-- ngRepeat: url in config.imageUrls track by $index --><div ng-class="{
+    &#39;active&#39;: leaving || (active &amp;&amp; !entering),
+    &#39;prev&#39;: (next || active) &amp;&amp; direction==&#39;prev&#39;,
+    &#39;next&#39;: (next || active) &amp;&amp; direction==&#39;next&#39;,
+    &#39;right&#39;: direction==&#39;prev&#39;,
+    &#39;left&#39;: direction==&#39;next&#39;
+  }" class="item ng-isolate-scope active" ng-transclude="" ng-repeat="url in config.imageUrls track by $index">
+            <img ng-src="/v5/api/activitydocument/bylink/cf2435ec-c353-4048-98bc-e2b95470b8a2" style="margin: auto; max-height: 300px;" class="ng-scope" src="./ADF Cadets - Activity overview_files/cf2435ec-c353-4048-98bc-e2b95470b8a2">
+        </div><!-- end ngRepeat: url in config.imageUrls track by $index -->
+    </div>
+    <a ng-click="prev()" class="carousel-control left ng-hide" ng-show="slides().length &gt; 1">‹</a>
+    <a ng-click="next()" class="carousel-control right ng-hide" ng-show="slides().length &gt; 1">›</a>
+</div>
+</div><!-- end ngIf: config.showImages == true --></div>
+
+                <div class="service-color-bg has-nominated-panel">
+                    <h5 class="AAC">
+                        <span class="ng-binding">You do not meet the joining prerequisites for adults</span>
+                    </h5>
+                    <p ng-show="overview.EnableNominate || overview.EnableWithdraw || overview.ConsentDocumentGuid || overview.Attendee" class="ng-hide">You can:</p>
+                    <!-- nominate to attend -->
+                    <!-- ngIf: overview.EnableNominate -->
+
+                    <!-- withdraw -->
+                    <!-- ngIf: overview.EnableWithdraw -->
+
+                    <!-- Download consent -->
+                    <!-- ngIf: page.DisplayConsent -->
+                </div>
+                <div class="overview-summary-panel">
+                    <div class="overview-summary">
+                        <h5>Available to members of:</h5>
+                        <ul>
+                            <!-- ngRepeat: link in overview.LinkedUnits --><li ng-repeat="link in overview.LinkedUnits" class="ng-binding ng-scope">
+                                241 ACU North Canberra (and sub units)
+                            </li><!-- end ngRepeat: link in overview.LinkedUnits --><li ng-repeat="link in overview.LinkedUnits" class="ng-binding ng-scope">
+                                224 ACU Canberra 
+                            </li><!-- end ngRepeat: link in overview.LinkedUnits -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="overview-summary-panel">
+                    <div class="overview-summary">
+                        <h5>Location</h5>
+                        <activity-address location-type="overview.LocationType" location="overview.Location" facility="overview.Facility" class="ng-isolate-scope"><!-- ngIf: locationType==0 -->
+<!-- ngIf: locationType==1 --><span ng-if="locationType==1" ng-bind-html="location|lineBreak" class="activity-location ng-binding ng-scope">Eddison Park, Woden ACT</span><!-- end ngIf: locationType==1 -->
+</activity-address>
+                        <div activity-overview-map="" map-link="overview.OverviewMap" class="ng-isolate-scope"><!-- ngIf: config.showMap --></div>
+
+                        <p>
+                            <!-- ngRepeat: t in overview.Tags | orderBy: t.Tag -->
+                        </p>
+                    </div>
+                </div>
+                <div class="overview-summary-panel">
+                    <h5>Contact</h5>
+                    <a href="mailto:Victor.Kalkman@armycadets.gov.au" class="ng-binding">MAJ(AAC) Victor Kalkman - 2208649</a>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <div class="footerPush"></div>
+    </div>
+</div>
+    <div class="iframeContainer"></div>
+    <!-- V4 hangover for tinymce v3.5-->
+    <!--<script src="/shared/js/tiny_mce/tiny_mce.js" type="text/javascript"></script>-->
+    <script src="./ADF Cadets - Activity overview_files/45cfcde8.scripts.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/7d2dd18f.angular-main.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/95772c00.angular-modules.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/919efe61.angular-d3.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/ff091df6.cadetnet.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/ace8333f.workflowHistory.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/48f95dd9.cadetnet-admin.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/5b35bc67.cadetnet-org.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/c190f13c.activities.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/095bca57.cadetnet-home.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/9439c114.cadetnet-people.js"></script>
+    <!--
+    TODO: Place old script links here
+    <script src="scripts/common/menu2-data-service.00js"></script>
+    <script src="scripts/common/css3-multi-column.js"></script>
+    -->
+    <script src="./ADF Cadets - Activity overview_files/42f1cee4.cadetnet-common.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/096f5e37.cadetnet-tinymce.min.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/165d91b0.cadetnet-my-account.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/1712cf80.cadetnet-report.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/768dbfac.cadetnet-finance.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/92f60a5a.cadetnet-cfa.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/8c304595.cadetnet-cvp.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/30653d3f.cadetnet-pdt.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/66f31b38.learning.js"></script>
+    <script src="./ADF Cadets - Activity overview_files/53777399.edrms.js"></script>
+
+
+
+
+</body></html>

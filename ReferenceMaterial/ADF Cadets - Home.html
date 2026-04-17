@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/ -->
+<html class="no-js ng-scope" ng-app="cadetnetApp" id="ng-app"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <!--
+  // THIS COULD BE A POTENTIAL WORKAROUND FOR ie9 iNTERMITTANT CLIENT SIDE ROUTING... NOT FULLY TESTED SO NOT INCLUDED
+  <base href="/" />
+   -->
+    <script language="javascript" type="text/javascript">
+        var urlSearchRaw = window.location.search.trim();
+        var parts = [];
+        var founds = false;
+        var changed = false;
+        if (urlSearchRaw.substr(0, 1) == "?") {
+            parts = urlSearchRaw.substr(1).split("&");
+            for (var idx = parts.length - 1; idx >= 0; idx--) {
+                var keyval = parts[idx].split("=");
+                switch ("" + keyval[0]) {
+                    case "s":
+                        founds = true;
+                        break;
+                    case "authToken":
+                        changed = true;
+                        parts.splice(idx, 1);
+                        break;
+                    case "client-request-id":
+                        changed = true;
+                        parts.splice(idx, 1);
+                        break;
+                }
+            }
+        }
+        if (!founds) {
+            parts.push("s=" + (((new Date()).getTime() * 10000) + 621355968000000000 + ((new Date()).getTimezoneOffset() * -600000000)).toString());
+            changed = true;
+        }
+        if (changed) {
+            var newurl = window.location.origin + window.location.pathname + "?" + parts.join("&") + window.location.hash;
+            window.location.replace(newurl);
+        }
+    </script>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title ng-bind="pageTitle" class="ng-binding">ADF Cadets - Home</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css({.tmp,app}) styles/cadetnet-main.css -->
+
+    <!-- Contrib style -->
+    <!-- build:css({.tmp,app}) css/styles.css -->
+    <script type="text/javascript" src="./ADF Cadets - Home_files/ruxitagentjs_ICA7NVfqrux_10333260303165926.js" data-dtconfig="rid=RID_2095071270|rpid=924870455|domain=cadetnet.gov.au|reportUrl=/v5/rb_5fcf3fe8-a134-450b-91f9-df96c81f79d2|app=88623bfce7c83183|owasp=1|featureHash=ICA7NVfqrux|rdnt=0|uxrgce=1|cuc=o6ejm382|mel=100000|expw=1|dpvc=1|lastModification=1776290426433|postfix=o6ejm382|tp=500,50,0|srbbv=2|agentUri=/v5/ruxitagentjs_ICA7NVfqrux_10333260303165926.js"></script><link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/1029ff05.normalize.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/c4195abb.toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/5b85714c.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/505367f3.bootstrap2icon.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/f68c822f.bootstrap-glyphicons.css">
+
+    <!-- Application style -->
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/1bb05bdc.style.css">
+
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/0aaac79e.nv.d3.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/c552a822.animate.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/60431478.bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/fc1fc283.loading-bar.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/0af6925d.gd-ui-jsonexplorer.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/1552c8ec.jquery.Jcrop.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/d4a18e0c.fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="./ADF Cadets - Home_files/2f625703.angular-dropdownMultiselect.css">
+
+    <!-- /build -->
+<link type="text/css" rel="stylesheet" href="./ADF Cadets - Home_files/undefined.css"><link type="text/css" rel="stylesheet" href="./ADF Cadets - Home_files/AAC.css"></head>
+
+<body ng-controller="RootController" class="dashboard" resize-event="" style="">
+    <img id="gbi" src="./ADF Cadets - Home_files/loading2.gif" ng-show="globalBusyIndicator || pendingRequests.active()" class="globalBusyIndicator ng-hide">
+    <!-- {{User.Service}} -->
+    <!-- Internet Explorer http://docs.angularjs.org/guide/ie -->
+    <!--[if lt IE 5]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+            today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+            experience this site.
+        </p>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="libs/es5-shim.min.js"></script>
+        <script src="libs/json3.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script>
+            'nav footer header ng-include ng-view ui-view subnav tick checkmark checkmarkyesno cadetnet-Uag-Timer'.replace(/\w+/g, function(n) { document.createElement(n) });
+            'nav footer header ng:include ng:view ui:view subnav tick checkmark checkmarkyesno'.replace(/\w+/g, function(n) { document.createElement(n) });
+        </script>
+        <style>
+            ng\\:view { display: block; }
+            ng-include { display: block; }
+        </style>
+    <![endif]-->
+
+<div class="wrap">    
+    <div class="navbar navbar-default navbar-fixed-top noselect" role="navigation">
+        <ul class="container nav navbar-nav navbar-left">
+            <li class="dropdown nav-other">
+                <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/" class="ms365-menu-white">
+                    <img src="./ADF Cadets - Home_files/ms365-menu-white.png">
+                </a>
+                <ul id="external-web-links" class="external-web-links">
+                    <ul class="static-links">
+                        <li class="menu-icon"><img src="./ADF Cadets - Home_files/ms365-menu-black.png"></li>
+                        <li class="ms365-link">
+                            <a href="https://www.microsoft365.com/">Microsoft 365 <img src="./ADF Cadets - Home_files/ms365-menu-right-arrow.png"></a>
+                        </li>
+                    </ul>
+                    <div id="dynamic-links" class="dynamic-links"><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="2" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/" class="leaf"><i class="nav-v5 service-color-hover"></i>v5</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://members.cadetnet.gov.au/" target="_blank" class="leaf"><i class="nav-intranet service-color-hover"></i>Intranet</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://www.cadetnet.gov.au/" target="_blank" class="leaf"><i class="nav-website service-color-hover"></i>Website</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://outlook.office365.com/mail/?login_hint%3d2426077%40cadetnet.gov.au" target="_blank" class="leaf" rel="noreferrer"><i class="nav-webmail service-color-hover"></i>Webmail</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/elearning/" target="_blank" class="leaf"><i class="nav-elearning service-color-hover"></i>eLearning</a></li><li class="level-1 noChildren ng-scope"><a cadet-link="true" tf="3" path="breadcrumbs-hide" href="https://apps.cadetnet.gov.au/defence/" target="_blank" class="leaf"><i class="nav-chemalert service-color-hover"></i>ChemAlert</a></li></div>
+                    <div class="clearfix"></div>
+                    <ul class="static-links">
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/changelog">
+                                Changes in this release
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/tnc">
+                                Terms &amp; conditions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/privacy">
+                                Privacy statement
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/copyright">
+                                © Commonwealth of Australia
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="position:absolute;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- ngIf: User.ServiceImageGuid --><img class="logo ng-scope" ng-src="/v5/api/upload/display/27608a62-7646-4a51-a71f-c00286e68ef8" alt="Service logo" ng-if="User.ServiceImageGuid" style="z-index:-1;" src="./ADF Cadets - Home_files/27608a62-7646-4a51-a71f-c00286e68ef8"><!-- end ngIf: User.ServiceImageGuid -->
+                <!-- ngIf: User.Service != undefined --><a class="navbar-brand ng-binding ng-scope" ng-if="User.Service != undefined" cadet-link="" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/">
+                    AAC:V5
+                </a><!-- end ngIf: User.Service != undefined -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="collapse-menu" class="collapse navbar-collapse navbar-ex1-collapse">
+                <nav id="header">
+                    <!-- PEOPLE ORGANISATION REPORTS ADMIN goes in the following UL-->
+                    <!--<ul class="nav navbar-nav navbar-search">
+                    <li>
+                        <div id="custom-search-input">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="Search People" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="button">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>-->
+                    <ul class="nav navbar-nav navbar-left commmonHeaderNavs" style="position:absolute; margin-left:150px;"><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="People" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/People" class="notleaf">People</a><ul class="level-2"><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Search" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/member" class="leaf">Search</a></li><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Applications" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/application" class="leaf">Applications</a></li><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="People/Cadet bulk image import" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/people/bulk-image-import" class="leaf">Cadet bulk image import</a></li><li class="level-2"><a cadet-link="true" tf="2" path="People/Workflow history" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/People/Workflow%20history">Workflow history</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="Organisation" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation" class="notleaf">Organisation</a><ul class="level-2 manyitems"><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Activities">Activities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Assets">Assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Cashbook">Cashbook</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Facilities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Facilities">Facilities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Firearms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Firearms">Firearms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Hazards" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Hazards">Hazards</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/ICT assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/ICT%20assets">ICT assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Inspections" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Inspections">Inspections</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Learning">Learning</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Sentinel" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Sentinel">Sentinel</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Uniforms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Uniforms">Uniforms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Units" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Units">Units</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/Workflow history" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/Workflow%20history">Workflow history</a></li><li class="level-2"><a cadet-link="true" tf="2" path="Organisation/V4 Activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Organisation/V4%20Activities">V4 Activities</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="Reports" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/Reports" class="notleaf">Reports</a><ul class="level-2"><li class="level-2 noChildren"><a cadet-link="true" tf="2" path="Reports/Search" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/reports" class="leaf">Search</a></li></ul></li><li class="level-1 hasChildren ng-scope"><a cadet-link="true" tf="2" path="System" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System" class="notleaf">System</a><ul class="level-2 manyitems"><li class="level-2"><a cadet-link="true" tf="2" path="System/Activities &amp; learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Activities%20&amp;%20learning">Activities &amp; learning</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Assets" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Assets">Assets</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Cashbook">Cashbook</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Facilities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Facilities">Facilities</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Firearms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Firearms">Firearms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Global" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Global">Global</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Health &amp; safety" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Health%20&amp;%20safety">Health &amp; safety</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Mail" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Mail">Mail</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Organisation - content" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Organisation%20-%20content">Organisation - content</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - age out" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20age%20out">People - age out</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - appointments" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20appointments">People - appointments</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20details">People - details</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - ranks" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20ranks">People - ranks</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - roles" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20roles">People - roles</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/People - volunteer payments" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/People%20-%20volunteer%20payments">People - volunteer payments</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Permission" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Permission">Permission</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Training" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Training">Training</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Uniforms" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Uniforms">Uniforms</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Units" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Units">Units</a></li><li class="level-2"><a cadet-link="true" tf="2" path="System/Workflow" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/landing/System/Workflow">Workflow</a></li></ul></li></ul>
+                    <ul class="nav navbar-nav navbar-right">                        
+                        <li class="dropdown my-account">
+                            <a cadet-link="" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount" path="MyAccount" id="userGreeting" class="ng-binding">
+                                Hi James
+                                <i class="countBadge service-color ng-binding">
+                                    1
+                                </i>
+                            </a>
+                            <ul class="account-fixed-items" cadetnet-static-include="views/menu/my-account-fixed-items.html" style="display: none;"><table id="myAccountFixed" width="200px" class="ng-scope">
+    <tbody><tr id="logout-row">
+        <td colspan="2">
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/logout" class="btn service-color logout">Logout</a>
+        </td>
+    </tr>
+    <tr class="notifications-tasks-row">
+        <td>
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-notifications" cadet-link="true" path="MyAccount/Notifications">
+                <div class="service-color-hover count-icon">
+                    <img src="./ADF Cadets - Home_files/icon-notifcations.png">
+                </div>
+                <div class="count-text">
+                    Notifications
+                        <i class="countBadge service-color ng-binding">1</i>
+                </div>
+            </a>
+        </td>
+        <td>
+            <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-tasks" cadet-link="true" path="MyAccount/Tasks">
+                <div class="service-color-hover count-icon">
+                    <img src="./ADF Cadets - Home_files/icon-tasks.png">
+                </div>
+                <div class="count-text">
+                    Tasks
+                        <i class="countBadge service-color ng-binding">17</i>
+                </div>
+            </a>
+        </td>
+    </tr>
+</tbody></table>
+<li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/view-details">My details</a></li><li class="level-1 noChildren ng-scope" update-details="" ng-hide="hide"><a cadet-link="true" tf="2" path="MyAccount/Update details" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Update%20details" class="leaf">Update details</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Manage account" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Manage%20account">Manage account</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Manage career" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Manage%20career">Manage career</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My cashbook" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/My%20cashbook">My cashbook</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My activities" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/my-activities">My activities</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/My learning" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/learning">My learning</a></li><li class="level-1 ng-scope"><a cadet-link="true" tf="2" path="MyAccount/Other info" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/MyAccount/Other%20info">Other info</a></li></ul>
+                        </li>
+                        <!--Commenting the Cube menu as the new M365 menu is implemented-->
+                        <!--<li class="dropdown nav-other">-->
+                        <!-- style="margin-right: 20px;">-->
+                        <!--<a cadet-link id="other-link" href="#/">
+                            <img src="img/icon-nav-other.png" style="width: 25px; margin: 0px 8px;">
+                        </a>
+                        <ul id="otherWebLinks">
+                            <div id="firstbits"></div>
+                            <div class="clearfix"></div>
+                            <ul id="secondbits">
+                                <li>
+                                    <a href="#/changelog">
+                                        Changes in this release
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/tnc">
+                                        Terms & conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/privacy">
+                                        Privacy statement
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/copyright">
+                                        &copy; Commonwealth of Australia
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>-->
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </div>
+    <div class="container textBody">
+        <div class="row noselect" cadet-breadcrumb="">
+    <!-- Bread crumb START -->
+    <div id="breadcrumb" class="col-md-12 ng-hide" ng-show="navItem">
+        <!-- Nav Item -->
+        <span class="ng-binding">
+             
+        </span>
+        <!-- section  Item -->
+        <div class="btn-group">
+            <a class="dropdown-toggle  ng-binding" data-toggle="dropdown">
+                Choose a section
+            </a>
+            <ul class="dropdown-menu" role="menu" id="navChildren">
+            </ul>
+        </div>
+
+        <!-- Selected Item -->
+        
+    <div class="btn-group sectionItem ng-hide" ng-show="sectionItem &amp;&amp; (navItem!=&#39;MyAccount&#39; || (navItem==&#39;MyAccount&#39; &amp;&amp; (sectionItem==&#39;My volunteer payments&#39; || sectionItem==&#39;My activities&#39;))) &amp;&amp; hasChildrenInSecondLevel">
+        
+        <!--<div class="btn-group sectionItem" ng-show="sectionItem && (navItem!='MyAccount') && hasChildrenInSecondLevel">
+    <div class="btn-group sectionItem" ng-show="sectionItem && hasChildrenInSecondLevel">
+        -->
+        <a class="dropdown-toggle ng-binding" data-toggle="dropdown">
+            Choose an item
+        </a>
+        <ul class="dropdown-menu" role="menu" id="sectionChildren">
+        </ul>
+    </div>
+    </div>
+    <!-- Bread crumb END -->
+    <br>
+</div>
+        <!-- uiView:  --><div ui-view="" id="ui-view-index-html" class="ng-scope"><div class="row ng-scope" id="dashboard">
+  <div id="dashboardControls">
+    <a class="toggleDashboard" href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/">
+      <h1>
+        <span class="cog-menu"></span>
+      </h1>
+    </a>
+  </div>
+  <div id="dashboardHelpers">
+    <div id="openDashboard" class="animation">
+      <span>Choose the apps you want for your dashboard</span>
+    </div>
+  </div>
+  <div class="col-sm-12 active_widgets">
+    <div class="row widget-area ng-pristine ng-untouched ng-valid ng-isolate-scope" ng-model="$parent.widgetArea" pk-widget-area="" widget-area="widgetArea" name="">  <!-- ngRepeat: block in widgetArea.blocks --><div class="block block-0  row-fluid block block minimized" ng-class="{minimized: isMinimized()}" pk-block="" options="block.options" ng-repeat="block in widgetArea.blocks">  <div class="block-head" style="visibility: hidden">      <span class="title ng-binding">Manage my home</span>        <!-- ngRepeat: actionRight in actionsRight | reverse -->   </div>  <div class="block-content" ng-transclude="">    <!-- ngRepeat: column in block.columns --><div class="column col-lg-12 col-md-12 ng-valid" ng-transclude="" pk-column="" options="column.options" ng-repeat="column in block.columns" ng-model="$parent.widgetArea" ui-multi-sortable="" model-subset="blocks[0].columns[0].widgets" ui-options="columnUiOptions" name="">        <!-- ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-facebook-army ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Australian Army Cadets</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-facebook-aac="">
+   <!-- attachIf: amIUnderActiveArea() -->
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-facebook-air ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Australian Air Force Cadets</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-facebook-aafc="">
+    <!-- attachIf: amIUnderActiveArea() -->
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-completedTasks ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Completed tasks</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-completed-tasks="">
+  <div class="notificationsWidget hidden-phone panel-body">
+    <canvas width="540" height="380" style="display:block; visibility: hidden;"></canvas>
+	<nvd3-multi-bar-chart data="$root.pulse.WorkflowTasks.barChartData" id="completeTasksPie" stacked="true" width="540" height="380" showxaxis="true" showcontrols="true" yaxistickformat="yAxisTickFormatFunction()" showyaxis="true" showlegend="true" tooltips="true" tooltipcontent="toolTipContentFunction()" nodata="No task data" class="ng-isolate-scope">
+        <svg width="540" height="380" style="position: absolute; top: 100px; left: 0; right:0; width:540px; margin:0 auto;"><g class="nvd3 nv-wrap nv-multiBarWithLegend" transform="translate(50,50)"><g><g class="nv-x nv-axis" transform="translate(0,280)"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick" transform="translate(34.08450704225352,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Oct 2025</text></g><g class="tick" transform="translate(96.05633802816901,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Nov 2025</text></g><g class="tick" transform="translate(158.0281690140845,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Dec 2025</text></g><g class="tick" transform="translate(220,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Jan 2026</text></g><g class="tick" transform="translate(281.97183098591546,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Feb 2026</text></g><g class="tick" transform="translate(343.943661971831,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Mar 2026</text></g><g class="tick" transform="translate(405.91549295774644,0)" style="opacity: 1;"><line y2="-280" x2="0" style="opacity: 1;"></line><text y="7" dy=".71em" style="text-anchor: middle; opacity: 1;" x="0">Apr 2026</text></g><path class="domain" d="M0,0V0H440V0"></path><text class="nv-axislabel" text-anchor="middle" y="36" x="220" style="opacity: 1;"></text></g></g></g><g class="nv-y nv-axis"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick" transform="translate(0,280)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="0" y="0" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,240.45197740112994)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">50</text></g><g class="tick" transform="translate(0,200.90395480225988)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">100</text></g><g class="tick" transform="translate(0,161.35593220338984)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">150</text></g><g class="tick" transform="translate(0,121.80790960451978)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">200</text></g><g class="tick" transform="translate(0,82.25988700564972)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">250</text></g><g class="tick" transform="translate(0,42.71186440677968)" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="1" y="0" style="text-anchor: end;">300</text></g><g class="tick" transform="translate(0,3.1638418079095914)" opacity="0" style="opacity: 1;"><line x2="440" y2="0"></line><text x="-3" dy=".32em" opacity="0" y="0" style="text-anchor: end;">350</text></g><path class="domain" d="M0,0H0V280H0"></path><text class="nv-axislabel" transform="rotate(-90)" y="-63" x="-140" style="text-anchor: middle;"></text></g><g class="nv-axisMaxMin" transform="translate(0,280)"><text dy=".32em" y="0" x="-3" text-anchor="end" style="opacity: 1;">0</text></g><g class="nv-axisMaxMin" transform="translate(0,0)"><text dy=".32em" y="0" x="-3" text-anchor="end" style="opacity: 1;">354</text></g></g></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-multibar" transform="translate(0,0)"><defs><clippath id="nv-edge-clip-1508"><rect width="440" height="280"></rect></clippath></defs><g clip-path="url(#nv-edge-clip-1508)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(6.197183098591549,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(68.16901408450704,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="278.4180790960452" height="1.581920903954824" width="55.774647887323944" transform="translate(130.14084507042253,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(192.11267605633802,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(254.0845070422535,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(316.056338028169,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(378.0281690140845,0)" style="fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></rect></g><g class="nv-group nv-series-1" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(6.197183098591549,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(68.16901408450704,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="278.4180790960452" height="1" width="55.774647887323944" transform="translate(130.14084507042253,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(192.11267605633802,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(254.0845070422535,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(316.056338028169,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(378.0281690140845,0)" style="fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></rect></g><g class="nv-group nv-series-2" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(6.197183098591549,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(68.16901408450704,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="278.4180790960452" height="1" width="55.774647887323944" transform="translate(130.14084507042253,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="279.2090395480226" height="1" width="55.774647887323944" transform="translate(192.11267605633802,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="280" height="1" width="55.774647887323944" transform="translate(254.0845070422535,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="278.4180790960452" height="1.581920903954824" width="55.774647887323944" transform="translate(316.056338028169,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect><rect class="nv-bar positive" x="0" y="268.135593220339" height="11.86440677966101" width="55.774647887323944" transform="translate(378.0281690140845,0)" style="fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></rect></g><g class="nv-group nv-series-3" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"><rect class="nv-bar positive" x="0" y="189.03954802259886" height="90.16949152542372" width="55.774647887323944" transform="translate(6.197183098591549,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="121.01694915254237" height="158.98305084745763" width="55.774647887323944" transform="translate(68.16901408450704,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="0" height="278.4180790960452" width="55.774647887323944" transform="translate(130.14084507042253,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="168.47457627118644" height="110.73446327683615" width="55.774647887323944" transform="translate(192.11267605633802,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="69.60451977401132" height="210.39548022598868" width="55.774647887323944" transform="translate(254.0845070422535,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="48.24858757062148" height="230.1694915254237" width="55.774647887323944" transform="translate(316.056338028169,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect><rect class="nv-bar positive" x="0" y="195.36723163841808" height="72.76836158192091" width="55.774647887323944" transform="translate(378.0281690140845,0)" style="fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></rect></g></g></g></g></g><g class="nv-legendWrap" transform="translate(180,-50)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(72,5)"><g class="nv-series" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Completed</text></g><g class="nv-series" transform="translate(94,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">In progress</text></g><g class="nv-series" transform="translate(0,25)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(255, 127, 14); stroke: rgb(255, 127, 14);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Not started</text></g><g class="nv-series" transform="translate(94,25)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(255, 187, 120); stroke: rgb(255, 187, 120);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Cancelled</text></g></g></g></g><g class="nv-controlsWrap" transform="translate(0,-50)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(40,5)"><g class="nv-series disabled" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Grouped</text></g><g class="nv-series" transform="translate(70,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Stacked</text></g></g></g></g></g></g></svg>
+    </nvd3-multi-bar-chart>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-searches ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Searches</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-searches="">
+  <div class="panel-heading">
+  </div>
+  <div class="hidden-phone panel-body">
+    <select ng-model="searchType" ng-options="c.name for c in searchTypes" name="saved-searches" id="saved-searches" class="input-large ng-pristine ng-untouched ng-valid has-value" style="width: 100%"><option value="?" selected="selected"></option><option label="Saved searches" value="object:96">Saved searches</option><option label="Favourite searches" value="object:97">Favourite searches</option></select>
+    <table class="table" id="">
+      <tbody>
+        <!-- ngRepeat: item in items -->
+      </tbody>
+    </table>
+  </div>
+  <div class="widget-footer">
+    <i class="icon icon-eye-open"></i>&nbsp;&nbsp;
+    <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/self/saved-searches">See all saved searches</a>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-facebook-navy ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Australian Navy Cadets</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-facebook-anc="">
+    <!-- attachIf: amIUnderActiveArea() -->
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets -->    </div><!-- end ngRepeat: column in block.columns -->  </div></div><!-- end ngRepeat: block in widgetArea.blocks --><div class="block block-1  row-fluid block block" ng-class="{minimized: isMinimized()}" pk-block="" options="block.options" ng-repeat="block in widgetArea.blocks">  <div class="block-head" style="visibility: hidden">      <span class="title ng-binding">Dashboard</span>        <!-- ngRepeat: actionRight in actionsRight | reverse -->   </div>  <div class="block-content" ng-transclude="">    <!-- ngRepeat: column in block.columns --><div class="column col-lg-12 col-md-12 ng-valid" ng-transclude="" pk-column="" options="column.options" ng-repeat="column in block.columns" ng-model="$parent.widgetArea" ui-multi-sortable="" model-subset="blocks[1].columns[0].widgets" ui-options="columnUiOptions" name="">        <!-- ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-favouriteTasks ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Announcements</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right ] " ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right [ " ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-announcements="">
+    <div class="panel-heading">
+    </div>
+    <div class="notificationsWidget hidden-phone panel-body">
+        <div ng-bind-html="item" class="ng-binding"><div style="max-width: 1200px; margin: 0 auto; font-family: &#39;Segoe UI&#39;, Helvetica, Arial, sans-serif; color: #333; padding: 8px; box-sizing: border-box;"><!-- IOA / FAC / Appointment Currency Alert -->
+<div style="background-color: #fef3e8; border: 2px solid #e67e22; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-sizing: border-box;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+<div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 20px; background-color: #e67e22; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 24px;">!</div>
+<strong style="font-size: 18px; color: #7a3e0a;">Check Your Compliance Currency</strong></div>
+<p style="font-size: 14px; line-height: 1.6; margin: 0 0 14px 0; color: #4a2800;">Due to known issues with system reminder emails, <strong>adult volunteers are encouraged to manually verify their compliance currency</strong> and take action to remediate any items that are approaching expiry. Do not rely on system notifications — check your tasks and records directly.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<div style="flex: 1; min-width: 220px; background-color: #fff8f0; border: 1px solid #f0b97d; border-radius: 8px; padding: 12px; box-sizing: border-box;"><strong style="display: block; font-size: 14px; color: #7a3e0a; margin-bottom: 4px;">Instrument of Acceptance (IOA)</strong> <span style="font-size: 13px; color: #4a2800;">Confirm your IOA is not expiring. Check your tasks and take action if it is due for renewal.</span></div>
+<div style="flex: 1; min-width: 220px; background-color: #fff8f0; border: 1px solid #f0b97d; border-radius: 8px; padding: 12px; box-sizing: border-box;"><strong style="display: block; font-size: 14px; color: #7a3e0a; margin-bottom: 4px;">First Aid Certificate (FAC)</strong> <span style="font-size: 13px; color: #4a2800;">Confirm your FAC remains current. Check your accomplishments and take action if it is due to expire.</span></div>
+<div style="flex: 1; min-width: 220px; background-color: #fff8f0; border: 1px solid #f0b97d; border-radius: 8px; padding: 12px; box-sizing: border-box;"><strong style="display: block; font-size: 14px; color: #7a3e0a; margin-bottom: 4px;">Primary Appointments</strong> <span style="font-size: 13px; color: #4a2800;">Adult volunteers holding unit appointments with task approval responsibilities should confirm their primary appointment remains current.</span></div>
+</div>
+</div>
+<!-- MFA Warning -->
+<div style="background-color: #fff4ce; border: 2px solid #ffb900; border-radius: 10px; padding: 20px; margin-bottom: 25px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; box-sizing: border-box;">
+<div style="display: flex; align-items: center; gap: 15px; flex: 1; min-width: 280px;">
+<div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 20px; background-color: #ffb900; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 24px;">!</div>
+<div><strong style="font-size: 18px; color: #84754e; display: block; margin-bottom: 4px;">Recommended Action: Add Your Mobile</strong>
+<div style="font-size: 14px; line-height: 1.4;">To maintain access, all users must register for <strong>Multi-Factor Authentication (MFA)</strong>, however&nbsp;we strongly recommend that you link a <strong>mobile phone number</strong> to your profile. Adding your mobile phone number will provide an alternate authentication method.</div>
+</div>
+</div>
+<div style="flex-shrink: 0; margin-left: auto;"><a style="display: inline-block; background-color: #3c441e; color: #ffffff; padding: 12px 18px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" href="https://mysignins.microsoft.com.mcas.ms/security-info" target="_blank" rel="noopener">Manage Your MFA</a></div>
+</div>
+<div style="margin-bottom: 30px;">
+<div style="font-size: 18px; color: #3c441e; font-weight: bold; margin-bottom: 15px; border-left: 4px solid #3c441e; padding-left: 12px;">Essential Help Guides</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<div style="flex: 1; min-width: 240px; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 16px; text-align: center; box-sizing: border-box;">
+<div style="width: 40px; height: 40px; border-radius: 20px; background-color: #3c441e; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 18px; margin: 0 auto 10px auto;">1</div>
+<strong style="display: block; font-size: 15px; margin-bottom: 8px;">New Starter Guide</strong>
+<p style="font-size: 12px; color: #6b7280; margin-bottom: 15px; min-height: 40px;">Overview of CadetNet M365 applications and getting started tips.</p>
+<a style="color: #3c441e; font-weight: bold; font-size: 13px; text-decoration: underline;" href="https://cadetnetgovau.sharepoint.com/:b:/r/CadetNet%20M365/CadetNet-,365-New-Starter-help-guide.pdf?csf=1&amp;web=1&amp;e=ZnffPM" target="_blank" rel="noopener">Download PDF</a></div>
+<div style="flex: 1; min-width: 240px; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 16px; text-align: center; box-sizing: border-box;">
+<div style="width: 40px; height: 40px; border-radius: 20px; background-color: #3c441e; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 18px; margin: 0 auto 10px auto;">2</div>
+<strong style="display: block; font-size: 15px; margin-bottom: 8px;">MFA Help Guide</strong>
+<p style="font-size: 12px; color: #6b7280; margin-bottom: 15px; min-height: 40px;">Instructions for installing and setting up Microsoft Authenticator.</p>
+<a style="color: #3c441e; font-weight: bold; font-size: 13px; text-decoration: underline;" href="https://cadetnetgovau.sharepoint.com/:b:/r/CadetNet%20M365/CadetNet-M365-MFA-help-guide.pdf?csf=1&amp;web=1&amp;e=brygJB" target="_blank" rel="noopener">Download PDF</a></div>
+<div style="flex: 1; min-width: 240px; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 16px; text-align: center; box-sizing: border-box;">
+<div style="width: 40px; height: 40px; border-radius: 20px; background-color: #3c441e; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 18px; margin: 0 auto 10px auto;">3</div>
+<strong style="display: block; font-size: 15px; margin-bottom: 8px;">Self-Service Password</strong>
+<p style="font-size: 12px; color: #6b7280; margin-bottom: 15px; min-height: 40px;">How to register secret questions for independent password resets.</p>
+<a style="color: #3c441e; font-weight: bold; font-size: 13px; text-decoration: underline;" href="https://cadetnetgovau.sharepoint.com/:b:/r/CadetNet%20M365/How%20to%20Register%20for%20Self-Service%20Password%20-%20Help%20Guide.pdf?csf=1&amp;web=1&amp;e=J64Khm" target="_blank" rel="noopener">Download PDF</a></div>
+</div>
+</div>
+<hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0;">
+<div style="font-size: 18px; color: #3c441e; font-weight: bold; margin-bottom: 15px; padding-left: 12px;">Quick Links</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 10px;"><a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-hub/SitePages/News.aspx"> <span style="display: block; font-size: 14px; font-weight: bold;">Australian Army Cadets News</span> <span style="display: block; font-size: 11px; color: #6b7280;">Access intranet news</span> </a> <a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-ppi/SitePages/Standing-Orders.aspx"> <span style="display: block; font-size: 14px; font-weight: bold;">Standing Orders</span> <span style="display: block; font-size: 11px; color: #6b7280;">Access Standing Orders</span> </a> <a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-ict"> <span style="display: block; font-size: 14px; font-weight: bold;">Information Technology Portal</span> <span style="display: block; font-size: 11px; color: #6b7280;">Support, guides and requests</span> </a> <a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-haa"> <span style="display: block; font-size: 14px; font-weight: bold;">Honours, Awards and Recognition</span> <span style="display: block; font-size: 11px; color: #6b7280;">Guidance and nominations</span> </a></div>
+<div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 10px;"><a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-ppi/SitePages/Standing-Instructions.aspx"> <span style="display: block; font-size: 14px; font-weight: bold;">Standing Instructions</span> <span style="display: block; font-size: 11px; color: #6b7280;">Policy, governance and procedures</span> </a> <a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-training/SitePages/Cadet%20Development.aspx"> <span style="display: block; font-size: 14px; font-weight: bold;">Cadet Development Continuum (CDC)</span> <span style="display: block; font-size: 11px; color: #6b7280;">Curriculum and progression</span> </a> <a style="display: block; text-decoration: none; color: #1b1f10; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px;" href="https://cadetnetgovau.sharepoint.com.mcas.ms/sites/aac-ppi/SitePages/Previous-ACKNotes.aspx"> <span style="display: block; font-size: 14px; font-weight: bold;">ACKNotes</span> <span style="display: block; font-size: 11px; color: #6b7280;">Latest notices and updates</span> </a></div>
+</div>
+<div style="text-align: center; font-size: 11px; color: #9ca3af; margin-top: 25px;">Australian Army Cadets | A Rising Generation, Under A Rising Sun</div>
+</div></div>
+    </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets -->    </div><!-- end ngRepeat: column in block.columns --><div class="column col-lg-6 col-md-6 ng-valid" ng-transclude="" pk-column="" options="column.options" ng-repeat="column in block.columns" ng-model="$parent.widgetArea" ui-multi-sortable="" model-subset="blocks[1].columns[1].widgets" ui-options="columnUiOptions" name="">        <!-- ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-tasks ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Tasks</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div id="wrap-td" cadetnet-tasks="">
+  <div class="tasks hidden-phone panel-body">
+    <table class="table" id="" ng-show="$root.WorkflowTasks.last10.length &gt; 0">
+      <tbody>
+        <!-- ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">ALERT: No members in task group: Staff EOI Reviewer</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">14/03/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">ALERT: No members in task group: Staff EOI Reviewer</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">08/04/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">ALERT: No members in task group: Staff EOI Reviewer</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">09/04/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">ALERT: No members in task group: Activity - Workplace health and safety</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">15/04/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">ALERT: No members in task group: Cadet EOI Reviewer</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">17/04/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">Approve health condition update for MAJ(AAC) Elyse Mulheron - 2388704</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">27/04/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">Approve volunteer payment claim for CAPT(AAC) Daniel Simon - 2210753 - OC @ 288ACU</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">06/05/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">Approve volunteer payment claim for CAPT(AAC) Daryl Broadley - 2209945 - OC @ 251ACU</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">07/05/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">Approve volunteer payment claim for CAPT(AAC) Wayne Roach - 2286416 - OC @ 225ACU</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">07/05/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 --><tr ng-repeat="item in $root.WorkflowTasks.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+          <td data-title="Title" class="ng-binding">Approve volunteer payment claim for LT(AAC) Ken McAlister - 2306271 - STAFF @ 200ACU-Young</td>
+          <td data-title="Due date" style="text-align:right;" class="ng-binding">08/05/26</td>
+        </tr><!-- end ngRepeat: item in $root.WorkflowTasks.last10 -->
+      </tbody>
+    </table>
+  </div>
+  <div class="widget-footer">
+    <i class="icon icon-eye-open"></i>&nbsp;&nbsp;
+    <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-tasks">See all tasks</a>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-activities ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>My activities</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-my-activities="">
+  <div class="activities hidden-phone panel-body table-responsive" style="overflow-x: auto;">
+    <table class="table ng-hide" id="my-activities" ng-show="$root.MyActivities.last10.length &gt; 0">
+      <tbody>
+        <!-- ngRepeat: item in $root.MyActivities.last10 -->
+      </tbody>
+    </table>
+  </div>
+  <div class="widget-footer">
+    <i class="icon icon-eye-open"></i>&nbsp;&nbsp;<a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/my-activities">See all activities</a>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-tasks ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>My workflows</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-my-workflows="">
+  <div class="tasks hidden-phone panel-body table-responsive" style="overflow-x: auto;">
+    <table class="table common ng-hide" id="my-workflows" ng-show="$root.MyWorkflows.last10.length &gt; 0">
+      <thead>
+        <tr>
+          <th class="tablet"></th>
+          <th class="mobile">Initiated</th>
+          <th class="all">Workflow</th>
+          <th class="tablet">Target</th>
+          <th class="all">Status</th>
+          <th class="mobile" style="text-align:right;">Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ngRepeat: item in $root.MyWorkflows.last10 -->
+      </tbody>
+    </table>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-notifications ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>Notifications</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right ] " ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right [ " ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-notifications="">
+  <div class="hidden-phone table-responsive" style="overflow-x: auto;">
+    <table class="table common" id="searchResults" ng-show="$root.Notifications.last10.length &gt; 0">
+      <thead>
+        <tr class="no-pointer">
+          <th class="all subjectCol">Subject</th>
+          <th class="mobile">Type</th>
+          <th class="mobile">Priority</th>
+          <th class="tablet">From</th>
+          <th class="tablet">Start</th>
+          <th class="tablet">End</th>
+          <th class="all">Received</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ngRepeat: item in $root.Notifications.last10 --><tr ng-repeat="item in $root.Notifications.last10" ng-click="DS.showView(item.Id)" class="ng-scope">
+            <td data-title="Subject" class="all subjectColumn ng-binding">
+                <!-- ngIf: appConsts.Category[item.Category] == 'Task' -->
+                <!-- ngIf: appConsts.Category[item.Category] === 'Message' && item.Sender === 'People Messaging' -->
+                ALERT Reminder: Immediate attention required
+            </td>
+          <td data-title="Type" class="mobile typeColumn ng-binding">Message</td>
+          <td data-title="Priority" class="mobile">
+            <span class="red italic">High</span>
+          </td>
+          <td data-title="From" class="tablet ng-binding">Workflow System</td>
+          <td data-title="Start" class="tablet ng-binding"></td>
+          <td data-title="End" class="tablet ng-binding"></td>
+          <td data-title="Received" class="all receivedColumn ng-binding" style="text-align: right">16/04/26 19:24</td>
+        </tr><!-- end ngRepeat: item in $root.Notifications.last10 -->
+      </tbody>
+    </table>
+    <div class="widget-footer">
+      <a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my-notifications">
+        <i class="icon icon-eye-open"></i>&nbsp;&nbsp;See all notifications
+      </a>
+    </div>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget my-support-requests ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>My activity support requests</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div my-support-requests="">
+    <div class="panel-body table-responsive">
+        <button class="btn selected" ng-click="ui.showInitiatedByUser = true" ng-class="{&#39;selected&#39;:ui.showInitiatedByUser}">
+            Initiated by me
+        </button>
+        <button class="btn" ng-click="ui.showInitiatedByUser = false" ng-class="{&#39;selected&#39;:!ui.showInitiatedByUser}">
+            Assigned to me
+        </button>
+        <!-- ngIf: ui.showInitiatedByUser --><div class="container ng-scope" ng-if="ui.showInitiatedByUser">
+            <div my-support-requests-list="$root.supportRequestsInitiatedByUser" initiated-by-user="true" class="ng-isolate-scope">
+    <!-- ngIf: supportRequests.last.length > 0 -->
+    <!-- ngIf: supportRequests.last.length === 0 --><p ng-if="supportRequests.last.length === 0" class="message-empty ng-scope">No support requests to display</p><!-- end ngIf: supportRequests.last.length === 0 -->
+</div>
+        </div><!-- end ngIf: ui.showInitiatedByUser -->
+        <!-- ngIf: !ui.showInitiatedByUser -->
+    </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets -->    </div><!-- end ngRepeat: column in block.columns --><div class="column col-lg-6 col-md-6 ng-valid" ng-transclude="" pk-column="" options="column.options" ng-repeat="column in block.columns" ng-model="$parent.widgetArea" ui-multi-sortable="" model-subset="blocks[1].columns[2].widgets" ui-options="columnUiOptions" name="">        <!-- ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-my-unit-activities ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>My unit activities</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-my-unit-activities="">
+  <div class="activities hidden-phone panel-body table-responsive" style="overflow-x: auto;">
+    <table class="table" id="my-unit-activities" ng-show="$root.MyUnitActivities.last10.length &gt; 0">
+      <tbody>
+        <!-- ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">108479: NAC -  Parade Card; Feb 26 - Nov 26</strong> - Proposal<br>
+            <strong class="ng-binding">01/02/26 00:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">111144: Remote and Routine Work - CDC Cell</strong> - Approved<br>
+            <strong class="ng-binding">28/03/26 00:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' --><img ng-if="item.SmallIcon &amp;&amp; item.SmallIcon !=&#39;00000000-0000-0000-0000-000000000000&#39;" ng-src="/v5/api/activitydocument/bylink/7fa8f2d4-d08d-4560-b1ca-98b52236fa83" alt="Icon" class="activity-title-small-icon ng-scope" height="25px" width="25px" src="./ADF Cadets - Home_files/7fa8f2d4-d08d-4560-b1ca-98b52236fa83"><!-- end ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96846: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026</strong> - Approved<br>
+            <strong class="ng-binding">01/04/26 06:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">109848: National Command Activities 2026/02 (April to June 2026) - Meeting | Conference | Work Package</strong> - Proposal<br>
+            <strong class="ng-binding">01/04/26 06:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' --><img ng-if="item.SmallIcon &amp;&amp; item.SmallIcon !=&#39;00000000-0000-0000-0000-000000000000&#39;" ng-src="/v5/api/activitydocument/bylink/9874fd9b-a74c-40db-b6b6-e9817cfeda9d" alt="Icon" class="activity-title-small-icon ng-scope" height="25px" width="25px" src="./ADF Cadets - Home_files/9874fd9b-a74c-40db-b6b6-e9817cfeda9d"><!-- end ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96849: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: NSW AAC BDE</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96850: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: NSW2 AAC BDE</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96851: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: VIC AAC BDE</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96852: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: TAS AAC BN</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96853: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: SA AAC BDE</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 --><tr ng-repeat="item in $root.MyUnitActivities.last10" class="ng-scope">
+          <td class="smallcol">
+			<!-- ngIf: item.SmallIcon && item.SmallIcon !='00000000-0000-0000-0000-000000000000' -->
+          </td>
+          <td ng-click="DS.showView(item.Id)" class="ng-binding">
+            <strong class="ng-binding">96855: DEPUTY CHIEF OF ARMY ADVENTURE TRAINING AWARD 2026: NT AAC BN</strong> - Approved<br>
+            <strong class="ng-binding">02/04/26 01:00</strong>
+          </td>
+        </tr><!-- end ngRepeat: item in $root.MyUnitActivities.last10 -->
+      </tbody>
+    </table>
+  </div>
+  <div class="widget-footer">
+    <i class="icon icon-eye-open"></i>&nbsp;&nbsp;<a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/my-unit-activities">See unit activities</a>
+  </div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets --><div pk-widget="" options="widget.options" ng-repeat="widget in column.widgets" class="ng-scope ng-isolate-scope"><div class="widget box-learning ng-scope" ng-class="{minimized: isMinimized()}"><div class="widget-head"><!-- ngRepeat: actionLeft in actionsLeft --><h3 class="title"><span></span>My learning</h3><!-- ngRepeat: actionRight in actionsRight | reverse --><a ng-repeat="actionRight in actionsRight | reverse" ng-click="actions[actionRight].ngClick(options, element)" class="ng-scope"><i class="pull-right deleteWidget icon-remove-custom-large" ng-class="actions[actionRight].ngClass(options)"></i></a><!-- end ngRepeat: actionRight in actionsRight | reverse --></div><div class="widget-content"><div cadetnet-my-learning="">
+	<div class=" hidden-phone panel-body table-responsive" style="overflow-x: auto;">
+		<table class="table" id="my-learning" ng-show="$root.MyLearning.last.length &gt; 0">
+			<tbody>
+				<tr>
+					<td ng-click="DS.showView($root.MyLearning.last[0].Id)" width="50%" style="text-align: center; padding: 0;">
+						<b class="ng-binding">Defence Youth Safe Code of Conduct (Adult)</b>
+					</td>
+					<td ng-click="DS.showView($root.MyLearning.last[1].Id)" width="50%" style="text-align: center; padding: 0;">
+						<b class="ng-binding">CadetNet V5 Activities Module.</b>
+					</td>
+				</tr>
+				<tr>
+					<td ng-click="DS.showView($root.MyLearning.last[0].Id)" style="padding: 0;">
+						<!-- ngIf: $root.MyLearning.last[0] --><div ng-if="$root.MyLearning.last[0]" class="ng-scope">
+							<nvd3-pie-chart data="$root.MyLearning.last[0].ChartData" x="xFunction()" y="yFunction()" color="colorFunction()" width="160" height="140" donut="true" showlabels="false" labeltype="percent" id="learning-chart-1" margin="{left:0,top:0,bottom:0,right:0}" class="ng-isolate-scope">
+								<svg preserveAspectRatio="xMidYMax meet" viewBox="0 10 160 150" style="width: 160px; height: 160px; margin: auto;" height="140" width="160">
+									<text x="70" y="77" style="font-size: 18px">0%</text>
+									<text x="10" y="150" style="font-size: 13px">0 of 1 courses complete</text>
+								<g class="nvd3 nv-wrap nv-pieChart" transform="translate(0,0)"><g><g class="nv-pieWrap"><g class="nvd3 nv-wrap nv-pie nv-chart-6857" transform="translate(0,0)"><g><g class="nv-pie" transform="translate(80,70)"><g class="nv-slice" fill="#697e47" stroke="#697e47"><path d="M3.429011037612589e-15,-56A56,56 0 0,1 3.429011037612589e-15,-56L2.1431318985078682e-15,-35A35,35 0 0,0 2.1431318985078682e-15,-35Z"></path></g><g class="nv-slice" fill="#BBBBBB" stroke="#BBBBBB"><path d="M0,56A56,56 0 1,1 0,-56A56,56 0 1,1 0,56M0,35A35,35 0 1,0 0,-35A35,35 0 1,0 0,35Z"></path></g></g><g class="nv-pieLabels" transform="translate(80,70)"></g></g></g></g><g class="nv-legendWrap"></g></g></g></svg>
+							</nvd3-pie-chart>
+						</div><!-- end ngIf: $root.MyLearning.last[0] -->
+					</td>
+
+					<td ng-click="DS.showView($root.MyLearning.last[1].Id)" style="padding: 0;">
+						<!-- ngIf: $root.MyLearning.last[1] --><div ng-if="$root.MyLearning.last[1]" class="ng-scope">
+							<nvd3-pie-chart data="$root.MyLearning.last[1].ChartData" x="xFunction()" y="yFunction()" color="colorFunction()" width="160" height="140" donut="true" showlabels="false" labeltype="percent" id="learning-chart-2" margin="{left:0,top:0,bottom:0,right:0}" class="ng-isolate-scope">
+								<svg preserveAspectRatio="xMidYMax meet" viewBox="0 10 160 150" style="width: 160px; height: 160px; margin: auto;" height="140" width="160">
+									<text x="70" y="77" style="font-size: 18px">0%</text>
+									<text x="10" y="150" style="font-size: 13px">0 of 1 courses complete</text>
+								<g class="nvd3 nv-wrap nv-pieChart" transform="translate(0,0)"><g><g class="nv-pieWrap"><g class="nvd3 nv-wrap nv-pie nv-chart-4037" transform="translate(0,0)"><g><g class="nv-pie" transform="translate(80,70)"><g class="nv-slice" fill="#697e47" stroke="#697e47"><path d="M3.429011037612589e-15,-56A56,56 0 0,1 3.429011037612589e-15,-56L2.1431318985078682e-15,-35A35,35 0 0,0 2.1431318985078682e-15,-35Z"></path></g><g class="nv-slice" fill="#BBBBBB" stroke="#BBBBBB"><path d="M0,56A56,56 0 1,1 0,-56A56,56 0 1,1 0,56M0,35A35,35 0 1,0 0,-35A35,35 0 1,0 0,35Z"></path></g></g><g class="nv-pieLabels" transform="translate(80,70)"></g></g></g></g><g class="nv-legendWrap"></g></g></g></svg>
+							</nvd3-pie-chart>
+						</div><!-- end ngIf: $root.MyLearning.last[1] -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="widget-footer" style="margin-top: 5px; margin-bottom: 0px">
+			<i class="icon icon-eye-open"></i>&nbsp;&nbsp;
+			<a href="https://apps.cadetnet.gov.au/v5/ui/index.html?s=639119650421300000#/my/learning">See all my learning</a>
+		</div>
+		<div class="widget-head recent service-color">Recent accomplishments</div>
+
+		<table class="table" id="my-accomplishments" ng-show="$root.MyAccomplishments.last.length &gt; 0">
+			<tbody>
+				<!-- ngRepeat: item in $root.MyAccomplishments.last --><tr ng-repeat="item in $root.MyAccomplishments.last" class="ng-scope">
+					<td ng-click="DS.showView(item.Id)">
+						<strong class="ng-binding">Defence Youth Safe Code of Conduct</strong>
+					</td>
+					<td class="tablet ng-binding">
+						14/11/2024
+					</td>
+				</tr><!-- end ngRepeat: item in $root.MyAccomplishments.last --><tr ng-repeat="item in $root.MyAccomplishments.last" class="ng-scope">
+					<td ng-click="DS.showView(item.Id)">
+						<strong class="ng-binding">S058 - Application for ADF Conduct Record Check</strong>
+					</td>
+					<td class="tablet ng-binding">
+						04/06/2024
+					</td>
+				</tr><!-- end ngRepeat: item in $root.MyAccomplishments.last --><tr ng-repeat="item in $root.MyAccomplishments.last" class="ng-scope">
+					<td ng-click="DS.showView(item.Id)">
+						<strong class="ng-binding">Defence Youth Protection Officers and Instructors</strong>
+					</td>
+					<td class="tablet ng-binding">
+						25/03/2024
+					</td>
+				</tr><!-- end ngRepeat: item in $root.MyAccomplishments.last -->
+			</tbody>
+		</table>
+	</div>
+</div></div></div><a class="toggleDashboard hidden pull-right ng-scope">CLOSE <i class="icon-remove icon"></i></a></div><!-- end ngRepeat: widget in column.widgets -->    </div><!-- end ngRepeat: column in block.columns -->  </div></div><!-- end ngRepeat: block in widgetArea.blocks --></div>
+  </div>
+</div>
+</div>
+        <div class="footerPush"></div>
+    </div>
+</div>
+    <div class="iframeContainer"></div>
+    <!-- V4 hangover for tinymce v3.5-->
+    <!--<script src="/shared/js/tiny_mce/tiny_mce.js" type="text/javascript"></script>-->
+    <script src="./ADF Cadets - Home_files/45cfcde8.scripts.js"></script>
+    <script src="./ADF Cadets - Home_files/7d2dd18f.angular-main.js"></script>
+    <script src="./ADF Cadets - Home_files/95772c00.angular-modules.js"></script>
+    <script src="./ADF Cadets - Home_files/919efe61.angular-d3.js"></script>
+    <script src="./ADF Cadets - Home_files/ff091df6.cadetnet.js"></script>
+    <script src="./ADF Cadets - Home_files/ace8333f.workflowHistory.js"></script>
+    <script src="./ADF Cadets - Home_files/48f95dd9.cadetnet-admin.js"></script>
+    <script src="./ADF Cadets - Home_files/5b35bc67.cadetnet-org.js"></script>
+    <script src="./ADF Cadets - Home_files/c190f13c.activities.js"></script>
+    <script src="./ADF Cadets - Home_files/095bca57.cadetnet-home.js"></script>
+    <script src="./ADF Cadets - Home_files/9439c114.cadetnet-people.js"></script>
+    <!--
+    TODO: Place old script links here
+    <script src="scripts/common/menu2-data-service.00js"></script>
+    <script src="scripts/common/css3-multi-column.js"></script>
+    -->
+    <script src="./ADF Cadets - Home_files/42f1cee4.cadetnet-common.js"></script>
+    <script src="./ADF Cadets - Home_files/096f5e37.cadetnet-tinymce.min.js"></script>
+    <script src="./ADF Cadets - Home_files/165d91b0.cadetnet-my-account.js"></script>
+    <script src="./ADF Cadets - Home_files/1712cf80.cadetnet-report.js"></script>
+    <script src="./ADF Cadets - Home_files/768dbfac.cadetnet-finance.js"></script>
+    <script src="./ADF Cadets - Home_files/92f60a5a.cadetnet-cfa.js"></script>
+    <script src="./ADF Cadets - Home_files/8c304595.cadetnet-cvp.js"></script>
+    <script src="./ADF Cadets - Home_files/30653d3f.cadetnet-pdt.js"></script>
+    <script src="./ADF Cadets - Home_files/66f31b38.learning.js"></script>
+    <script src="./ADF Cadets - Home_files/53777399.edrms.js"></script>
+
+
+
+
+</body></html>

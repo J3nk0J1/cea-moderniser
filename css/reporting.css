@@ -1,0 +1,302 @@
+/* CadetNet Enhanced - Report Builder */
+
+/* Panel slide-out */
+.ce-report-panel {
+  position: fixed;
+  top: 0;
+  right: -520px;
+  width: 500px;
+  max-width: 95vw;
+  height: 100vh;
+  z-index: 99998;
+  background: var(--ce-glass-bg) !important;
+  backdrop-filter: var(--ce-blur) !important;
+  -webkit-backdrop-filter: var(--ce-blur) !important;
+  border-left: 1px solid var(--ce-glass-border) !important;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4) !important;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  transition: right 300ms ease !important;
+  overflow: hidden;
+}
+
+.ce-report-panel-open {
+  right: 0 !important;
+}
+
+/* Header */
+.ce-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ce-glass-border);
+  flex-shrink: 0;
+}
+
+.ce-report-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ce-text-bright);
+}
+
+.ce-report-title svg {
+  color: var(--ce-accent);
+}
+
+.ce-report-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--ce-text-muted);
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: var(--ce-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--ce-transition);
+}
+
+.ce-report-close:hover {
+  background: var(--ce-glass-hover);
+  color: var(--ce-text);
+}
+
+/* Body */
+.ce-report-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+/* Sections */
+.ce-report-section {
+  margin-bottom: 16px;
+}
+
+.ce-report-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ce-text-muted);
+  margin-bottom: 6px;
+}
+
+/* Inputs & Selects */
+.ce-report-select,
+.ce-report-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ce-glass-border);
+  border-radius: var(--ce-radius);
+  background: var(--ce-glass-surface);
+  color: var(--ce-text);
+  font-size: 13px;
+  font-family: 'Inter', system-ui, sans-serif;
+  outline: none;
+  transition: border-color var(--ce-transition);
+}
+
+.ce-report-select:focus,
+.ce-report-input:focus {
+  border-color: var(--ce-accent-border);
+}
+
+.ce-report-select-sm {
+  width: auto;
+  min-width: 100px;
+}
+
+/* Filter rows */
+.ce-report-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ce-report-filter-label {
+  flex: 0 0 100px;
+  font-size: 12px;
+  color: var(--ce-text-secondary);
+}
+
+.ce-report-filter-row .ce-report-input,
+.ce-report-filter-row .ce-report-select {
+  flex: 1;
+}
+
+/* Buttons */
+.ce-report-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ce-report-btn {
+  padding: 8px 16px;
+  border-radius: var(--ce-radius);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+  transition: all var(--ce-transition);
+  border: 1px solid transparent;
+}
+
+.ce-report-btn-primary {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--ce-accent-border);
+  color: var(--ce-accent);
+}
+
+.ce-report-btn-primary:hover {
+  background: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.ce-report-btn-secondary {
+  background: var(--ce-glass-surface);
+  border-color: var(--ce-glass-border);
+  color: var(--ce-text-secondary);
+}
+
+.ce-report-btn-secondary:hover {
+  background: var(--ce-glass-hover);
+  color: var(--ce-text);
+}
+
+.ce-report-btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+  background: var(--ce-glass-surface);
+  border-color: var(--ce-glass-border);
+  color: var(--ce-text-secondary);
+}
+
+.ce-report-btn-sm:hover:not(:disabled) {
+  background: var(--ce-glass-hover);
+  color: var(--ce-text);
+}
+
+.ce-report-btn-sm:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Status messages */
+.ce-report-status {
+  padding: 8px 12px;
+  border-radius: var(--ce-radius);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.ce-report-status-info {
+  background: var(--ce-accent-dim);
+  border: 1px solid var(--ce-accent-border);
+  color: var(--ce-accent);
+}
+
+.ce-report-status-error {
+  background: var(--ce-danger-dim);
+  border: 1px solid var(--ce-danger-border);
+  color: #fca5a5;
+}
+
+/* Results */
+.ce-report-results {
+  margin-top: 12px;
+}
+
+.ce-report-results-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--ce-text-muted);
+}
+
+.ce-report-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Table */
+.ce-report-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--ce-glass-border);
+  border-radius: var(--ce-radius);
+}
+
+.ce-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ce-report-th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--ce-text-secondary);
+  background: var(--ce-glass-surface);
+  border-bottom: 1px solid var(--ce-glass-border);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.ce-report-th:hover {
+  color: var(--ce-accent);
+}
+
+.ce-report-td {
+  padding: 7px 10px;
+  color: var(--ce-text);
+  border-bottom: 1px solid var(--ce-glass-border-subtle);
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ce-report-tr:hover .ce-report-td {
+  background: var(--ce-glass-hover);
+}
+
+.ce-report-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--ce-text-muted);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ce-report-panel {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  .ce-report-filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ce-report-filter-label {
+    flex: none;
+    margin-bottom: 2px;
+  }
+}

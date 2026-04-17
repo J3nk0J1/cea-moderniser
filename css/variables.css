@@ -1,0 +1,71 @@
+/* CadetNet Enhanced - CSS Variables (Space Glass Theme) */
+
+/* ============================================================
+   CadetNet Enhanced - Space Glass Visual Redesign
+   Dark glassmorphic theme inspired by my-rsi-rg
+   ============================================================ */
+
+/* Load Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Custom Properties (Space Glass Theme) --- */
+:root {
+  /* Base palette - slate dark */
+  --ce-base-950: #020617;
+  --ce-base-900: #0f172a;
+  --ce-base-800: #1e293b;
+  --ce-base-700: #334155;
+  --ce-base-600: #475569;
+  --ce-base-500: #64748b;
+  --ce-base-400: #94a3b8;
+  --ce-base-300: #cbd5e1;
+  --ce-base-200: #e2e8f0;
+  --ce-base-100: #f1f5f9;
+
+  /* Accent - sky blue */
+  --ce-accent: #38bdf8;
+  --ce-accent-hover: #7dd3fc;
+  --ce-accent-dim: rgba(56, 189, 248, 0.15);
+  --ce-accent-border: rgba(56, 189, 248, 0.3);
+
+  /* Status */
+  --ce-success: #22c55e;
+  --ce-success-dim: rgba(34, 197, 94, 0.2);
+  --ce-success-border: rgba(34, 197, 94, 0.3);
+  --ce-warning: #f59e0b;
+  --ce-warning-dim: rgba(245, 158, 11, 0.2);
+  --ce-warning-border: rgba(245, 158, 11, 0.3);
+  --ce-danger: #dc2626;
+  --ce-danger-dim: rgba(220, 38, 38, 0.2);
+  --ce-danger-border: rgba(220, 38, 38, 0.3);
+  --ce-info: #6366f1;
+  --ce-info-dim: rgba(99, 102, 241, 0.2);
+
+  /* Glass */
+  --ce-glass-bg: rgba(15, 23, 42, 0.95);
+  --ce-glass-card: rgba(30, 41, 59, 0.80);
+  --ce-glass-surface: rgba(30, 41, 59, 0.60);
+  --ce-glass-hover: rgba(255, 255, 255, 0.05);
+  --ce-glass-border: rgba(255, 255, 255, 0.10);
+  --ce-glass-border-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --ce-text: #e2e8f0;
+  --ce-text-secondary: #94a3b8;
+  --ce-text-muted: #64748b;
+  --ce-text-bright: #f1f5f9;
+
+  /* Shadows & Glows */
+  --ce-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --ce-shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --ce-shadow-glow: 0 0 30px rgba(56, 189, 248, 0.15);
+
+  /* Misc */
+  --ce-radius: 8px;
+  --ce-radius-lg: 12px;
+  --ce-radius-xl: 16px;
+  --ce-radius-full: 9999px;
+  --ce-transition: 300ms ease;
+  --ce-blur: blur(16px);
+  --ce-blur-md: blur(12px);
+}

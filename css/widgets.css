@@ -1,0 +1,313 @@
+/* CadetNet Enhanced - Widgets & Dashboard */
+
+/* ============================================================
+   PANELS & ACCORDIONS
+   ============================================================ */
+
+.panel-group .panel {
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+.panel-default > .panel-heading {
+  background: var(--ce-glass-surface) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+  border: none !important;
+  padding: 12px 16px !important;
+  height: auto !important;
+}
+
+.panel-default > .panel-heading.open {
+  background: var(--ce-glass-card) !important;
+}
+
+.panel-heading a {
+  color: var(--ce-text) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.panel-default > .panel-heading + .panel-collapse .panel-body,
+.panel-default > .panel-heading + .panel-collapse.in .panel-body {
+  border: none !important;
+  background: var(--ce-glass-card) !important;
+}
+
+.tab-panel {
+  background: var(--ce-glass-surface) !important;
+  border-radius: var(--ce-radius) !important;
+  border: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+.tab-panel .tab-inner-panel {
+  background: var(--ce-glass-card) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+.row.row-tabs .col-md-12 {
+  background: var(--ce-glass-surface) !important;
+  border-radius: var(--ce-radius) !important;
+}
+
+.row.row-tabs .btn[disabled] {
+  background: var(--ce-glass-card) !important;
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   DASHBOARD WIDGETS
+   ============================================================ */
+
+.widget-area .widget,
+.widget-area .block .widget {
+  background: var(--ce-glass-card) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+  -webkit-backdrop-filter: var(--ce-blur-md) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-xl) !important;
+  overflow: hidden !important;
+  box-shadow: var(--ce-shadow) !important;
+  margin-bottom: 20px !important;
+  transition: all var(--ce-transition) !important;
+  padding: 0 !important;
+}
+
+.widget-area .widget:hover {
+  border-color: var(--ce-accent-border) !important;
+  box-shadow: var(--ce-shadow-glow) !important;
+  transform: translateY(-2px) !important;
+}
+
+.widget-area .widget .widget-head,
+.widget-area .block .widget .widget-head {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.15)) !important;
+  border-bottom: 1px solid var(--ce-glass-border) !important;
+  padding: 14px 18px !important;
+  height: auto !important;
+}
+
+.widget-head h3.title,
+.widget-area .block .widget .widget-head h3.title {
+  color: var(--ce-text-bright) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+.widget-content {
+  background: transparent !important;
+  padding: 16px !important;
+  color: var(--ce-text) !important;
+}
+
+/* Widget tables — override Bootstrap default white backgrounds */
+.widget-content .table,
+.widget-content .table-striped,
+.widget-content .table-hover,
+#wrap-td .table,
+#wrap-td .tasks .table {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+.widget-content .table tbody > tr,
+#wrap-td .table tbody > tr {
+  background: transparent !important;
+}
+
+.widget-content .table tbody > tr:nth-child(odd),
+#wrap-td .table tbody > tr:nth-child(odd) {
+  background: var(--ce-glass-surface) !important;
+}
+
+.widget-content .table tbody > tr:hover,
+#wrap-td .table tbody > tr:hover {
+  background: var(--ce-glass-hover) !important;
+}
+
+/* pk-widget directive wrapper — ensure no overlay or white bg leaks through */
+[pk-widget],
+.pk-widget,
+.widget-area [pk-widget] {
+  background: transparent !important;
+}
+
+.widget-content li:nth-child(odd) {
+  background: var(--ce-glass-surface) !important;
+}
+
+.widget-content li:nth-child(2n) {
+  background: transparent !important;
+}
+
+.widget-content li {
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  color: var(--ce-text) !important;
+}
+
+.widget-content a { color: var(--ce-accent) !important; }
+
+.widget-content .table tbody > tr > td {
+  border-bottom: 1px solid var(--ce-glass-border-subtle) !important;
+}
+
+.widget-footer {
+  padding: 10px 16px !important;
+}
+
+/* Special widget types */
+.widget-area > .block .widget.box-activities {
+  border-color: var(--ce-danger-border) !important;
+}
+.widget-area > .block .widget.box-activities .widget-head {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.25), rgba(239, 68, 68, 0.15)) !important;
+}
+
+.widget-area > .block .widget.box-learning {
+  border-color: var(--ce-warning-border) !important;
+}
+.widget-area > .block .widget.box-learning .widget-head {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(251, 191, 36, 0.15)) !important;
+}
+
+.widget-area > .block .widget.box-my-unit-activities {
+  border-color: rgba(14, 165, 233, 0.3) !important;
+}
+.widget-area > .block .widget.box-my-unit-activities .widget-head {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(56, 189, 248, 0.15)) !important;
+}
+
+#dashboard { margin-top: -64px !important; }
+#dashboardControls { margin-top: 52px !important; }
+#dashboardControls a:hover { color: var(--ce-accent) !important; }
+
+/* ============================================================
+   LEARNING PROGRAM
+   ============================================================ */
+
+#learning-program {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  color: var(--ce-text) !important;
+}
+
+#learning-program .panel-default > .panel-heading {
+  background: var(--ce-glass-surface) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+}
+
+#learning-program .panel-default .block-complete {
+  background-color: var(--ce-success) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 8px var(--ce-success-dim) !important;
+}
+
+#learning-program .panel-default .block-incomplete {
+  background-color: var(--ce-danger) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 8px var(--ce-danger-dim) !important;
+}
+
+/* ============================================================
+   ACTIVITY / NOMINATION
+   ============================================================ */
+
+.has-nominatied {
+  border-radius: var(--ce-radius-lg) !important;
+  backdrop-filter: var(--ce-blur-md) !important;
+}
+
+/* ============================================================
+   UNIT TREE
+   ============================================================ */
+
+#unit-tree {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  color: var(--ce-text) !important;
+}
+
+#unit-tree div.r {
+  border-top: 1px dotted var(--ce-glass-border) !important;
+}
+
+#unit-tree .unit-popover {
+  border-radius: var(--ce-radius) !important;
+  background: var(--ce-glass-bg) !important;
+}
+
+#unit-tree .unit-popover .panel-heading {
+  background: var(--ce-glass-surface) !important;
+  color: var(--ce-text) !important;
+}
+
+/* ============================================================
+   CALENDAR (FullCalendar)
+   ============================================================ */
+
+/* (No FullCalendar .fc-* rules found in content.css) */
+
+/* ============================================================
+   CHART / NVD3 OVERRIDES
+   ============================================================ */
+
+/* Completed chart sidebar */
+.completed-chart {
+  background: var(--ce-glass-card) !important;
+  border: 1px solid var(--ce-glass-border) !important;
+  border-radius: var(--ce-radius-lg) !important;
+  padding: 20px !important;
+}
+
+.completed-chart h4 {
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+.completed-chart .legend {
+  margin-bottom: 12px !important;
+}
+
+.completed-chart .legend-text {
+  color: var(--ce-text-muted) !important;
+  font-size: 10px !important;
+}
+
+/* My Learning widget fixes */
+#my-learning,
+#my-accomplishments,
+#my-learning td,
+#my-accomplishments td {
+  background: transparent !important;
+  color: var(--ce-text) !important;
+}
+
+#my-learning b,
+#my-accomplishments strong {
+  color: var(--ce-text-bright) !important;
+}
+
+.widget-content .widget-head.recent {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.15)) !important;
+  border: none !important;
+  border-radius: var(--ce-radius) !important;
+  padding: 10px 16px !important;
+  color: var(--ce-text-bright) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin: 8px 0 !important;
+}
+
+.widget-content .widget-footer {
+  border-top: 1px solid var(--ce-glass-border-subtle) !important;
+  padding-top: 10px !important;
+}
+
+.widget-content .table-responsive {
+  background: transparent !important;
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"^//\" \"C:\\\\Users\\\\james\\\\Documents\\\\GitHub\\\\cea-moderniser\\\\content.js\")",
+      "Bash(grep -n \"^/\\\\*\\\\|^\\\\//\" \"C:\\\\Users\\\\james\\\\Documents\\\\GitHub\\\\cea-moderniser\\\\content.css\")",
+      "Bash(grep -oE '\\(apiUrl|\\\\.get|\\\\.post|\\\\.put|\\\\.delete|\\\\.resource|\\\\$http\\)\\\\s*\\\\\\(')",
+      "Bash(grep -oE '\\\\$resource\\\\\\([\"\\\\047]\\([^\"'\\\\'']*\\)[\"\\\\047]' 48f95dd9.cadetnet-admin.js)",
+      "Bash(grep -oE '\\\\$resource\\\\\\([^\\)]*\\\\\\)')",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(grep *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('manifest.json','utf8'\\)\\); console.log\\('Valid JSON'\\)\")",
+      "Bash(wc -l css/*.css)",
+      "Bash(wc -l js/*.js)"
+    ]
+  }
+}
